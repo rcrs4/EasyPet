@@ -17,7 +17,7 @@ Then eu vejo uma opção para remarcar uma consulta
 Cenário: não há consulta no horário desmarcado
 Given que estou na estou na página de desmarcar consultas
 And coloquei para desmarcar a consulta das 16 horas
-And que coloquei o nome do pet como identificador para desmarca
+And que coloquei o nome do pet como identificador para desmarcar
 When eu confirmo a desmarcação
 Then eu vejo uma mensagem de erro de consulta não encontrada.
 
