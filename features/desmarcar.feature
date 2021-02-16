@@ -26,4 +26,4 @@ Cenário: não há consultas para serem desmarcadas
 Given que estou na estou na página inicial
 When eu entro na página “desmarcar consulta”
 Then eu vejo uma mensagem de erro informando que não existe nenhuma consulta marcada
-
+Then eu volto para a página "inicial"
