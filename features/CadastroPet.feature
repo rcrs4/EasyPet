@@ -21,3 +21,10 @@ Scenario: Editando os dados do pet
 	And o pet “Bob” já está cadastrado
 	When quero editar o pet “Bob”
     Then sou direcionado para a página de “cadastro do pet” para ser preenchida novamente
+
+Scenario: Tentativa falha de preencher os dados do pet
+    Given que estou na página “cadastro do pet”
+    When eu preencho alguns campos obrigatórios com raça “vira-lata” e dono “Fulano”
+    And preencho um campo opcional de peso com “10kg”
+    And submeto as informações
+    Then recebo uma mensagem de erro "Campos obrigatórios não preenchidos"
