@@ -28,3 +28,10 @@ Scenario: Tentativa falha de preencher os dados do pet
     And preencho um campo opcional de peso com “10kg”
     And submeto as informações
     Then recebo uma mensagem de erro "Campos obrigatórios não preenchidos"
+
+Scenario: Falha ao editar os dados do pet
+	Given que tenho a lista de pets
+	And o pet “Bob” já está cadastrado
+	When quero editar o pet “Bob”
+    And esqueço em branco o campo obregatório "raça"
+    Then recebo uma mensagem de erro "Campos obrigatórios não preenchidos"
