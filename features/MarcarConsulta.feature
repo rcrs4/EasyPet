@@ -1,7 +1,7 @@
 Feature: Marcar consulta
 Possibilidade de marcar uma consulta 
 
-Scenario: Marcar consulta com exito
+Scenario: Marcar consulta com êxito
 Given que estou na página "marcar consulta"
 And que todos os campos: "data: 23/02", "hora: 10h", "nome do dono: Bob" e "animal: Rex" devidamente preenchidos
 When submeto as informações
@@ -24,3 +24,8 @@ Given que tenho uma consulta marcada
 And estou na página "consultas marcadas"
 When solicito recibo da consulta
 Then recebo um recibo de confirmação contendo os dados "data: 23/02", "hora: 10h", "nome do dono: Bob", "animal: Rex" e "nome do veterinário: Dr.Jorge" de que a consulta foi marcada.
+
+Scenario: tentativa de marcar consulta sem possuir um animal cadastrado na conta do dono
+Given que estou na página "marcar consulta"
+When tento preencher qualquer campo como "data", "hora", "nome do dono" e/ou "animal"
+Then recebo uma mensagem "Você não possui animais cadastrados na sua conta" juntamente com um link para cadastro do mesmo
