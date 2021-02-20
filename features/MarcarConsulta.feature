@@ -29,3 +29,9 @@ Scenario: tentativa de marcar consulta sem possuir um animal cadastrado na conta
 Given que estou na página "marcar consulta"
 When tento preencher qualquer campo como "data", "hora", "nome do dono" e/ou "animal"
 Then recebo uma mensagem "Você não possui animais cadastrados na sua conta" juntamente com um link para cadastro do mesmo
+
+Scenario: tentativa de marcar consulta em um dia completamente preenchido
+Given que estou na página "marcar consulta"
+When seleciono o campo "data"
+And essa data selecionada está totalmente preenchida
+Then recebo uma mensagem "Dia sem vagas. Esse dia foi completamente preenchido, por favor selecione outro dia"
