@@ -44,3 +44,5 @@ Scenario: Falha de atribuição do pet ao dono
 	Then recebo uma mensagem de erro "Donos diferentes"
 
 Commit 1
+
+Commit 2
