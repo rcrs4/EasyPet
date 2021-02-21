@@ -25,14 +25,13 @@ And estou na página "consultas marcadas"
 When solicito recibo da consulta
 Then recebo um recibo de confirmação contendo os dados "data: 23/02", "hora: 10h", "nome do dono: Bob", "animal: Rex" e "nome do veterinário: Dr.Jorge" de que a consulta foi marcada.
 
-
 Scenario: Tentar marcar consulta sem possuir um animal cadastrado na conta do dono
 Given que estou na página "marcar consulta"
 When tento preencher qualquer campo como "data", "hora", "nome do dono" e/ou "animal"
 Then recebo uma mensagem "Você não possui animais cadastrados na sua conta" juntamente com um link para cadastro do mesmo
 
 Scenario: Tentativa de marcar consulta em um dia completamente preenchido
-Given que me encontro na página "marcar consulta"
+Given que estou na página "marcar consulta"
 When seleciono o campo "data"
 And essa data selecionada está totalmente preenchida
 Then recebo uma mensagem "Dia sem vagas. Esse dia foi completamente preenchido, por favor selecione outro dia"
