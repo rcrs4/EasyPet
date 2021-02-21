@@ -42,3 +42,5 @@ Scenario: Falha de atribuição do pet ao dono
 	And estou na página para ligar o pet ao dono
 	When atribuo o pet “Bob” ao dono “Fulano”
 	Then recebo uma mensagem de erro "Donos diferentes"
+
+Commit 1
