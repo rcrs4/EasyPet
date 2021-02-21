@@ -43,3 +43,11 @@ Scenario: Falha de atribuição do pet ao dono
 	When atribuo o pet “Bob” ao dono “Fulano”
 	Then eu visualizo o pet “Bob” no cadastro do dono “Fulano”
     Then recebo uma mensagem de erro "Donos diferente"
+
+Scenario: Outro falha de atribuição do pet ao dono
+	Given 
+	And 
+    And 
+	When
+	Then
+    Then
