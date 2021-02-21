@@ -31,7 +31,7 @@ When tento preencher qualquer campo como "data", "hora", "nome do dono" e/ou "an
 Then recebo uma mensagem "Você não possui animais cadastrados na sua conta" juntamente com um link para cadastro do mesmo
 
 Scenario: Tentar marcar consulta em um dia completamente preenchido
-Given que estou na página "marcar consulta"
+Given que me encontro na página "marcar consulta"
 When seleciono o campo "data"
 And essa data selecionada está totalmente preenchida
 Then recebo uma mensagem "Dia sem vagas. Esse dia foi completamente preenchido, por favor selecione outro dia"
