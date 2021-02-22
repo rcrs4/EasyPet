@@ -27,7 +27,7 @@ When eu entro na página “desmarcar consulta”
 Then eu vejo uma mensagem de erro informando que não existe nenhuma consulta marcada
 Then eu volto para a página "inicial"
 
-Cenário: tentativa de desmarcar uma consulta realizada
+Cenário: tentativa de desmarcar uma consulta que já foi realizada
 Given que estou na estou na página de desmarcar consultas
 And coloquei para desmarcar a consulta das 16 horas
 And que coloquei o nome do pet como identificador para desmarcar
