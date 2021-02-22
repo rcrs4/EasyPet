@@ -13,7 +13,6 @@ Given que estou vendo a mensagem de confirmação que uma consulta foi desmarcad
 When eu saio da mensagem de confirmação
 Then eu vejo uma opção para remarcar uma consulta
 
-
 Cenário: não há consulta no horário desmarcado
 Given que estou na estou na página de desmarcar consultas
 And coloquei para desmarcar a consulta das 16 horas
@@ -34,8 +33,3 @@ And que coloquei o nome do pet como identificador para desmarcar
 When eu confirmo a desmarcação
 Then eu vejo uma mensagem de erro que a consulta já foi realizada
 
-Cenário: teste
-Given teste
-And que teste
-When eu testo
-Then eu vejo uma mensagem de teste na tela
