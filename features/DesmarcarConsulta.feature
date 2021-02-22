@@ -21,7 +21,6 @@ And que coloquei o nome do pet como identificador para desmarcar
 When eu confirmo a desmarcação
 Then eu vejo uma mensagem de erro de consulta não encontrada.
 
-
 Cenário: não há consultas para serem desmarcadas
 Given que estou na estou na página inicial
 When eu entro na página “desmarcar consulta”
