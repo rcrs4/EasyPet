@@ -42,7 +42,7 @@ Scenario: Gerar relatório de todas as consultas
   When peço ao sistema para gerar relatório de todas as consultas
   Then farei o download de um relatório em PDF
   And neste relatório terá, para cada consulta, a data em que a consulta foi realizada, a data em que a consulta foi agendada e o resumo da consulta
-
+  And passo adicional de teste
 
 
 
