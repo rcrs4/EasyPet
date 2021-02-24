@@ -17,7 +17,18 @@ Scenario: Visualização de histórico vazio
   Then visualizo uma tela em branco
   And visualizo uma mensagem "Nenhuma consulta realizada anteriormente"
 
+Scenario: Visualização rápida de detalhes
+  Given que estou na página de "Histórico de consulta" do pet "Bob"
+  And "Bob" já realizou consultas no consultório anteriormente
+  When eu der destaque para a consulta que aconteceu no dia "01/01/2020"
+  Then verei que ele a consulta foi agendada em "01/12/2019"
 
+Scenario: Visualização aprofundada dos detalhes
+  Given que estou na página de "Histórico de consulta" do pet "Bob"
+  When acesso os deatlhes da consulta realizada no dia "01/01/2020"
+  Then visualizo a data que a consulta foi feita "01/01/2020", a data que a consulta foi agendada "01/12/2019"
+  And visualizo o resumo escrito da consulta "Dog saudável"
+  And visualizo um meio de gerar relatório daquela consulta
 
 
 
