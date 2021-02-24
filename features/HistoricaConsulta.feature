@@ -30,6 +30,7 @@ Scenario: Visualização aprofundada dos detalhes
   And visualizo o resumo escrito da consulta "Dog saudável"
   And visualizo um meio de gerar relatório daquela consulta
 
+<<<<<<< HEAD
 Scenario: Gerar relatório de cada consulta
   Given que estou na tela de visualização aprofundada dos detalhes da consulta de "Bob" do dia "01/01/2020"
   When peço ao sistema que gere um relatório daquela consulta
@@ -43,6 +44,15 @@ Scenario: Gerar relatório de todas as consultas
   Then farei o download de um relatório em PDF
   And neste relatório terá, para cada consulta, a data em que a consulta foi realizada, a data em que a consulta foi agendada e o resumo da consulta
   And passo adicional de teste
+=======
+Scenario: Teste de commit na branch de desenvolvimento
+  Given context
+  When event
+  Then outcome
+
+
+
+>>>>>>> desenvolvimento
 
 
 
