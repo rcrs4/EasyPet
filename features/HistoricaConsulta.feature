@@ -30,7 +30,18 @@ Scenario: Visualização aprofundada dos detalhes
   And visualizo o resumo escrito da consulta "Dog saudável"
   And visualizo um meio de gerar relatório daquela consulta
 
+Scenario: Gerar relatório de cada consulta
+  Given que estou na tela de visualização aprofundada dos detalhes da consulta de "Bob" do dia "01/01/2020"
+  When peço ao sistema que gere um relatório daquela consulta
+  Then farei o download de um relatório em PDF
+  And neste relatório terá a data que foi feita "01/01/2020", a data que foi marcada "01/12/2019" e o resumo da consulta "Dog saudável"
 
+Scenario: Gerar relatório de todas as consultas
+  Given que estou na página de Histórico de Consulta de "Bob"
+  And "Bob" realizou consultas no dia "01/01/2020" e no dia "01/02/2020"
+  When peço ao sistema para gerar relatório de todas as consultas
+  Then farei o download de um relatório em PDF
+  And neste relatório terá, para cada consulta, a data em que a consulta foi realizada, a data em que a consulta foi agendada e o resumo da consulta
 
 
 
