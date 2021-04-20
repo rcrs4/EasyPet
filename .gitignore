@@ -1,0 +1,22 @@
+# dependencies
+easypet-client/node_modules
+easypet-client/.pnp
+easypet-client/.pnp.js
+
+# testing
+easypet-client/coverage
+
+# production
+easypet-client/build
+
+# misc
+easypet-client/.DS_Store
+easypet-client/.env.local
+easypet-client/.env.development.local
+easypet-client/.env.test.local
+easypet-client/.env.production.local
+
+easypet-client/npm-debug.log*
+easypet-client/yarn-debug.log*
+easypet-client/yarn-error.log*
+easypet-client/yarn.lock
