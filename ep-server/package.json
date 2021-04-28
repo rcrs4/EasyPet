@@ -1,15 +1,21 @@
 {
-  "name": "node-react",
-  "version": "1.0.0",
+  "name": "ep-server",
+  "version": "0.0.2",
+  "description": "Servidor do EasyPet",
+  "main": "server.js",
   "scripts": {
-    "client": "cd ../ep-gui && npm start",
-    "server": "node server.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "./node_modules/typescript/bin/tsc",
+    "start": "npm run tsc && node compiledCode/ep-server/server.js"
   },
+  "author": "Rafael Carneiro",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.16.2"
+    "@types/express": "^4.0.37",
+    "body-parser": "^1.19.0",
+    "express": "^4.15.4"
   },
   "devDependencies": {
-    "concurrently": "^3.5.0"
+    "typescript": "~3.5.3"
   }
 }
