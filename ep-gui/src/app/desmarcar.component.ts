@@ -21,12 +21,10 @@ export class DesmarcarConsultas implements OnInit {
       this.desmarcar_service.getAgendamentos().subscribe(
         x => this.agendamentos = x,
         err => console.error('Error getting Agendamentos')
-      )
+      );
     }
 
     desmarcar(a:Agendamento): void{
-      this.desmarcar_service.removeAgendamento(a).subscribe(
-        x => x
-      )
+      this.desmarcar_service.removeAgendamento(a).subscribe();
     }
 }

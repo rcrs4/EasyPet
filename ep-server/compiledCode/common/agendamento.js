@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Agendamento {
-    constructor(nome, id) {
-        this.nome = nome || '';
+    constructor(data, id, pet) {
+        this.data = data || '';
         this.id = id || '';
+        this.pet = pet || { nome: '' };
     }
 }
 exports.Agendamento = Agendamento;
@@ -13,7 +14,6 @@ class AgendamentoList {
     }
     desmarcarAgendamento(agendamento) {
         let new_agendamentos = this.filterAgendamentos(agendamento);
-        console.log(new_agendamentos);
         if (new_agendamentos === null) {
             return [];
         }
@@ -25,7 +25,7 @@ class AgendamentoList {
     filterAgendamentos(agendamento) {
         let new_agendamentos = [];
         for (let agen of this.agendamentos) {
-            if (agendamento.nome !== agen.nome && agendamento.id !== agen.id) {
+            if (agendamento.data !== agen.data && agendamento.id !== agen.id) {
                 new_agendamentos.push(agen);
             }
         }
