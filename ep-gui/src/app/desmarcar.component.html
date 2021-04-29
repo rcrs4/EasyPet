@@ -1,17 +1,25 @@
 
-<html>
-    <body>
         <h2>Consultas agendadas</h2>
+        <div class="md-form active-pink active-pink-2 mb-3">
+            <label for="search1">Procure por Pet</label>
+            <br>
+            <input class="form-control" type="search" id="search1" aria-label="Search" mdbInput>
+            
+            <button name="">Procurar</button>
+        </div>
         <div *ngIf="agendamentos.length == 0">
             <h3>Nao ha agendamentos marcados</h3>
         </div>
-        <div *ngFor="let agendamento of agendamentos" name="agendamentoList">
-            <h3>
-                    Data: <div name="agendamentoData">{{ agendamento.data}}</div> Pet: <div name="petName">{{agendamento.pet.nome}}</div> 
-            </h3>
-            <button (click)="desmarcar(agendamento)">
-                Desmarcar
-            </button>
-        </div>
-    </body>
-</html>
+        <table>
+            <tr *ngIf="agendamentos.length > 0">
+                <th>Data</th>
+                <th>Pet</th>
+            </tr>
+            <tr *ngFor="let agendamento of agendamentos" name="agendamentoList">
+                <td name="agendamentoData">{{ agendamento.data}}</td>
+                <td name="petName">{{agendamento.pet.nome}}</td>
+                <td><button name="desmarcar{{agendamento.pet.nome}}{{agendamento.data}}" (click)="desmarcar(agendamento)">
+                    Desmarcar
+                </button></td>
+            </tr>
+        </table>

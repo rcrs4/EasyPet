@@ -3,35 +3,36 @@ import { browser, $, element, ElementArrayFinder, by } from 'protractor';
 let chai = require('chai').use(require('chai-as-promised'));
 let expect = chai.expect;
 
-let sameCPF = ((elem, cpf) => elem.element(by.name('cpflist')).getText().then(text => text === cpf));
-let sameName = ((elem, name) => elem.element(by.name('nomelist')).getText().then(text => text === name));
-
 let pAND = ((p,q) => p.then(a => q.then(b => a && b)))
 
+function delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
+
 defineSupportCode(function ({ Given, When, Then }) {
-    Given(/^I am at the students page$/, async () => {
+    Given('I am at the desmarcar page', async () => {
         await browser.get("http://localhost:4200/");
-        await expect(browser.getTitle()).to.eventually.equal('TaGui');
-        await $("a[name='alunos']").click();
+        await expect(browser.getTitle()).to.eventually.equal('EpGui');
+        await $("a[name='desmarcar']").click();
     })
 
-    Given(/^I cannot see a student with CPF "(\d*)" in the students list$/, async (cpf) => {
-        var allcpfs : ElementArrayFinder = element.all(by.name('cpflist'));
+    Given('eu vejo um agendamento para o pet {stringInDoubleQuotes} na data {stringInDoubleQuotes}', async (pet, data) => {
+        var allcpfs : ElementArrayFinder = element.all(by.name('petName'));
         var samecpfs = allcpfs.filter(elem =>
-                                      elem.getText().then(text => text === cpf));
+                                      elem.getText().then(text => text === pet));
+        await samecpfs.then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
+    });
+
+    When('eu clico para desmarcar o agendamento de {stringInDoubleQuotes} na data {stringInDoubleQuotes}', async (pet, data) => {
+        await element(by.name('desmarcar'+pet+data)).click();
+    });
+
+    Then('eu nao vejo o agendamento de {stringInDoubleQuotes} na data {stringInDoubleQuotes} na lista de agendamentos', async (pet, data) => {
+        await browser.get("http://localhost:4200/desmarcar");
+        var allcpfs : ElementArrayFinder = element.all(by.name('petName'));
+        var samecpfs = allcpfs.filter(elem =>
+                                      elem.getText().then(text => text === pet));
         await samecpfs.then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(0));
-    });
-
-    When(/^I try to register the student "([^\"]*)" with CPF "(\d*)"$/, async (name, cpf) => {
-        await $("input[name='namebox']").sendKeys(<string> name);
-        await $("input[name='cpfbox']").sendKeys(<string> cpf);
-        await element(by.buttonText('Adicionar')).click();
-    });
-
-    Then(/^I can see "([^\"]*)" with CPF "(\d*)" in the students list$/, async (name, cpf) => {
-        var allalunos : ElementArrayFinder = element.all(by.name('alunolist'));
-        await allalunos.filter(elem => pAND(sameCPF(elem,cpf),sameName(elem,name))).then
-                   (elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
     });
 
 })
