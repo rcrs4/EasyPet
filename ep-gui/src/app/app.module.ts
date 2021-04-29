@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DesmarcarConsultas } from './desmarcar.component';
 import { AgendamentoService } from './agendamento.service';
+import { AppointmentFilterComponent } from './appointment-filter/appointment-filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DesmarcarConsultas
+    DesmarcarConsultas,
+    AppointmentFilterComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +25,10 @@ import { AgendamentoService } from './agendamento.service';
       {
         path: 'desmarcar',
         component: DesmarcarConsultas
+      },
+      {
+        path: 'consultas',
+        component: AppointmentFilterComponent
       }
     ])
   ],
