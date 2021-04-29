@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DesmarcarConsultas } from './desmarcar.component';
 import { AgendamentoService } from './agendamento.service';
+import { OwnerRegistrationComponent } from './owner-registration/owner-registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DesmarcarConsultas
+    DesmarcarConsultas,
+    OwnerRegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +25,10 @@ import { AgendamentoService } from './agendamento.service';
       {
         path: 'desmarcar',
         component: DesmarcarConsultas
+      },
+      {
+        path: 'cadastrar dono',
+        component: OwnerRegistrationComponent
       }
     ])
   ],
