@@ -11,6 +11,9 @@ import { AgendamentoService } from "./agendamento.service";
 
 export class DesmarcarConsultas implements OnInit {
     agendamentos: Agendamento[] = [];
+    filteredAgendamentos: Agendamento[] = [];
+    filtered: boolean = false;
+    petToFilter: string = '';
     constructor(private desmarcar_service: AgendamentoService) { }
 
     ngOnInit() {
@@ -26,7 +29,24 @@ export class DesmarcarConsultas implements OnInit {
 
     desmarcar(a:Agendamento): void{
       this.desmarcar_service.removeAgendamento(a).subscribe(
-        (data) => {this.ngOnInit();}
+        (data) => {this.agendamentos = this.agendamentos.slice().filter(a => a.id !== data?.id);
+                   if(this.filtered){
+                     this.filterPet(this.petToFilter);
+                   }}
       );
     }
+
+    filterPet(petName:string): void{
+      this.desmarcar_service.filterInPet(petName).subscribe(
+        data => {this.filteredAgendamentos = data;
+                 this.filtered = true;
+                 this.petToFilter = petName},
+        err => {console.error('Error getting Agendamentos')}
+      );
+    }
+
+    returnAll(){
+      this.filtered = false;
+    }
+
 }

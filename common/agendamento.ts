@@ -43,6 +43,11 @@ export class AgendamentoList{
         return new_agendamentos;
     }
 
+    filterPetInAgendamentos(petName: string): Agendamento[]{
+        let filtered: Agendamento[] = this.agendamentos.slice().filter(a => a.pet.nome === petName)
+        return filtered
+    }
+
     getAgendamentos(){
         return this.agendamentos.slice();
     }
