@@ -34,6 +34,10 @@ import { PetListComponent } from './pet-list/pet-list.component';
       {
         path: 'consultas',
         component: AppointmentFilterComponent
+      },
+      {
+        path: 'pet_list',
+        component: PetListComponent
       }
     ])
   ],
