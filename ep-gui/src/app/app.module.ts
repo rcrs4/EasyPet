@@ -11,12 +11,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { DesmarcarConsultas } from './desmarcar.component';
 import { AgendamentoService } from './agendamento.service';
 import { AppointmentFilterComponent } from './appointment-filter/appointment-filter.component';
+import { PetListComponent } from './pet-list/pet-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DesmarcarConsultas,
-    AppointmentFilterComponent
+    AppointmentFilterComponent,
+    PetListComponent
   ],
   imports: [
     BrowserModule,
