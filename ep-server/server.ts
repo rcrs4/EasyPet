@@ -33,6 +33,10 @@ app.get('/agendamentos', function (req: express.Request, res: express.Response) 
   res.send(JSON.stringify(agendamentos.getAgendamentos()))
 });
 
+app.get('/horarios', function (req: express.Request, res: express.Response) {
+  res.send(JSON.stringify(agendamentos.getAgendamentos()))
+});
+
 app.listen(portNumber, () =>
   console.log(`Server is running on port ${portNumber}`)
 );
