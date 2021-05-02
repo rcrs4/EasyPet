@@ -9,12 +9,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AgendamentoService } from './agendamento.service';
 import { OwnerRegistrationComponent } from './owner-registration/owner-registration.component';
 import { OwnerSearchComponent } from './owner-search/owner-search.component';
+import { OwnerListComponent } from './owner-list/owner-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OwnerRegistrationComponent,
-    OwnerSearchComponent
+    OwnerSearchComponent,
+    OwnerListComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,10 @@ import { OwnerSearchComponent } from './owner-search/owner-search.component';
       {
         path: 'consultar dono',
         component: OwnerSearchComponent
+      },
+      {
+        path: 'listar donos',
+        component: OwnerListComponent
       }
     ])
   ],
