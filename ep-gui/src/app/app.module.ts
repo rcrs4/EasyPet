@@ -6,15 +6,15 @@ import { RouterModule }   from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DesmarcarConsultas } from './desmarcar.component';
 import { AgendamentoService } from './agendamento.service';
 import { OwnerRegistrationComponent } from './owner-registration/owner-registration.component';
+import { OwnerSearchComponent } from './owner-search/owner-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DesmarcarConsultas,
-    OwnerRegistrationComponent
+    OwnerRegistrationComponent,
+    OwnerSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -23,12 +23,12 @@ import { OwnerRegistrationComponent } from './owner-registration/owner-registrat
     HttpClientModule,
     RouterModule.forRoot([
       {
-        path: 'desmarcar',
-        component: DesmarcarConsultas
-      },
-      {
         path: 'cadastrar dono',
         component: OwnerRegistrationComponent
+      },
+      {
+        path: 'consultar dono',
+        component: OwnerSearchComponent
       }
     ])
   ],

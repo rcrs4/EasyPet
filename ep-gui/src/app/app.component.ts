@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DesmarcarConsultas } from './desmarcar.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
