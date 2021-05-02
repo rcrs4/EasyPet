@@ -1,5 +1,6 @@
 import * as express from "express";
 import {Agendamento, AgendamentoList}from "../common/agendamento"
+import {Appointment, AppointmentList}from "../common/appointment"
 import { AgendamentoService } from "../ep-gui/src/app/agendamento.service";
 const app = express();
 
@@ -10,6 +11,7 @@ var jsonParser = bodyParser.json();
 const portNumber = 3333;
 
 let agendamentos = new AgendamentoList([new Agendamento('teste', '1'), new Agendamento('teste2', '2'), new Agendamento('teste3', '3')]);
+let appointments = new AppointmentList([new Appointment('0', '22/03', '10h', 'Dr.Tonicao'), new Appointment('1', '22/03', '10h', 'Dr.Manel'), new Appointment('2', '23/03', '8h', 'Dr.Pedoka'), new Appointment('3', '24/03', '15h', 'Dr.Ruivin')])
 
 var allowCrossDomain = function(req: any, res: any, next: any) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -34,7 +36,7 @@ app.get('/agendamentos', function (req: express.Request, res: express.Response) 
 });
 
 app.get('/horarios', function (req: express.Request, res: express.Response) {
-  res.send(JSON.stringify(agendamentos.getAgendamentos()))
+  res.send(JSON.stringify(appointments.getAppointments()))
 });
 
 app.listen(portNumber, () =>

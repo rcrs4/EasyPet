@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Appointment} from '../../../../common/appointment'
 
 @Component({
   selector: 'app-appointment-filter',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./appointment-filter.component.css']
 })
 export class AppointmentFilterComponent implements OnInit {
-
+  appointments: Appointment[] = [];
   constructor() { }
 
   ngOnInit(): void {
