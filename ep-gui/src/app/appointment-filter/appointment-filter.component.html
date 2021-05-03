@@ -1,4 +1,4 @@
-<p-table [value]="products">
+<p-table [value]="appointments">
     <ng-template pTemplate="header">
         <tr>
             <th>Data</th>
@@ -6,9 +6,11 @@
             <th>Veterinário</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-product>
+    <ng-template pTemplate="body" let-appointment>
         <tr>
-            <td>{{product}}</td>
+            <td>{{appointment.data}}</td>
+            <td>{{appointment.horario}}</td>
+            <td>{{appointment.veterinario}}</td>
         </tr>
     </ng-template>
 </p-table>

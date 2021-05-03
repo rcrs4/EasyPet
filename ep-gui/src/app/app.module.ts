@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DesmarcarConsultas } from './desmarcar.component';
 import { AgendamentoService } from './agendamento.service';
+import { AppointmentService } from './appointment-filter/queryTable.service';
 import { AppointmentFilterComponent } from './appointment-filter/appointment-filter.component';
 
 @NgModule({
@@ -35,7 +36,7 @@ import { AppointmentFilterComponent } from './appointment-filter/appointment-fil
       }
     ])
   ],
-  providers: [AgendamentoService],
+  providers: [AgendamentoService, AppointmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
