@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 
+import { TableModule } from 'primeng/table';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,6 +24,7 @@ import { OwnerListService} from './owner-list/owner-list.service'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    TableModule,
     HttpClientModule,
     RouterModule.forRoot([
       {

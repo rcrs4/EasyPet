@@ -1,32 +1,24 @@
-<table border = "1">
-    <tr>
-        <th>Nome</th>
-        <th>CPF</th>
-        <th>Nº de Pets</th>
-    </tr>
-    <tr>
-        <td>Paulo Vinícius Fernandes</td>
-        <td>000.000.000-00</td>
-        <td>6</td>
-    </tr>
-    <tr>
-        <td>Paulo Victor Oliveira</td>
-        <td>111.111.111-11</td>
-        <td>24</td>
-    </tr>
-    <tr>
-        <td>Manoel Alves</td>
-        <td>222.222.222-22</td>
-        <td>69</td>
-    </tr>
-    <tr>
-        <td>Rafael Carneiro</td>
-        <td>333.333.333-33</td>
-        <td>420</td>
-    </tr>
-    <tr>
-        <td>Pedro Henrique</td>
-        <td>444.444.444-44</td>
-        <td>666</td>
-    </tr>
-</table>
+<h2 id="pageTitle">Donos cadastrado</h2>
+
+<p-table [value]="owners">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="name">Nome</th>
+            <th pSortableColumn="age">Idade</th>
+            <th pSortableColumn="fone">Fone</th>
+            <th pSortableColumn="cpf">Cpf</th>
+            <th pSortableColumn="address">Endereço</th>
+            <th pSortableColumn="email">Email</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-owner>
+        <tr>
+            <td>{{owner.name}}</td>
+            <td>{{owner.age}}</td>
+            <td>{{owner.fone}}</td>
+            <td>{{owner.cpf}}</td>
+            <td>{{owner.address}}</td>
+            <td>{{owner.email}}</td>
+        </tr>
+    </ng-template>
+</p-table>

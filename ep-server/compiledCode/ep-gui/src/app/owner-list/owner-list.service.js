@@ -20,7 +20,7 @@ let OwnerListService = class OwnerListService {
         this.epURL = 'http://localhost:3333';
     }
     getOwnerList() {
-        return this.http.get(this.epURL + "/lista de donos").pipe(operators_1.retry(2));
+        return this.http.get(this.epURL + "/ownersList").pipe(operators_1.retry(2));
     }
 };
 OwnerListService = __decorate([
