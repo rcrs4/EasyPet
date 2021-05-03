@@ -20,26 +20,3 @@
         </tr>
     </ng-template>
 </p-table>
-
-<p-table [value]="pets">
-    <ng-template pTemplate="header">
-        <tr>
-            <th pSortableColumn="nome">Nome</th>
-            <th pSortableColumn="especie">Espécie</th>
-            <th pSortableColumn="raca">Raça</th>
-            <th pSortableColumn="idade">Idade</th>
-            <th pSortableColumn="peso">Peso(kg)</th>
-            <th pSortableColumn="dono">Dono</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-pet>
-        <tr>
-            <td>{{pet.nome}}</td>
-            <td>{{pet.especie}}</td>
-            <td>{{pet.raca}}</td>
-            <td>{{pet.idade}}</td>
-            <td>{{pet.peso}}</td>
-            <td>{{pet.dono}}</td>
-        </tr>
-    </ng-template>
-</p-table>

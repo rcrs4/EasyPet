@@ -10,9 +10,9 @@ const portNumber = 3333;
 let agendamentos = new agendamento_1.AgendamentoList([new agendamento_1.Agendamento('teste', '1'), new agendamento_1.Agendamento('teste2', '2'), new agendamento_1.Agendamento('teste3', '3')]);
 let pets = new pet_1.PetList([new pet_1.Pet('0', 'Bob', 'cachorro', 'Golden Retriever', '5', 30, 'Manoel'),
     new pet_1.Pet('1', 'Rogério', 'gato', 'Sphynx', '3', 5, 'Marta'),
-    new pet_1.Pet('3', 'Rogério', 'gato', 'Sphynx', '3', 5, 'Alceu'),
     new pet_1.Pet('2', 'Filomena', 'gato', 'British Shorthair', '4', 6, 'Alceu'),
-    new pet_1.Pet('4', 'Faísca', 'cachorro', 'Border Collie', '1', 14, 'Pedro')]);
+    new pet_1.Pet('3', 'Faísca', 'cachorro', 'Border Collie', '1', 14, 'Pedro'),
+    new pet_1.Pet('4', 'Gus', 'cachorro', 'Vira-lata', '4', 7, 'Alceu')]);
 var allowCrossDomain = function (req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -38,11 +38,13 @@ app.get('/pets', function (req, res) {
 app.get('/pets/:dono', function (req, res) {
     // res.send(JSON.stringify(pets.getPets()))
     const dono = req.params.dono;
+    let tempList = [];
     pets.getPets().forEach((pet) => {
         if (pet.dono == dono) {
-            res.send(JSON.stringify(pet));
+            tempList.push(pet);
         }
     });
+    res.send(JSON.stringify(tempList));
 });
 app.listen(portNumber, () => console.log(`Server is running on port ${portNumber}`));
 //# sourceMappingURL=server.js.map
