@@ -1,6 +1,6 @@
 import * as express from "express";
-import {Agendamento, AgendamentoList}from "../common/agendamento"
-import { AgendamentoService } from "../ep-gui/src/app/agendamento.service";
+import {Owner, OwnerList}from "../common/ownerList"
+import { OwnerListService } from "../ep-gui/src/app/owner-list/owner-list.service";
 const app = express();
 
 var bodyParser = require('body-parser');
@@ -9,7 +9,7 @@ var jsonParser = bodyParser.json();
 
 const portNumber = 3333;
 
-let agendamentos = new AgendamentoList([new Agendamento('teste', '1'), new Agendamento('teste2', '2'), new Agendamento('teste3', '3')]);
+let owners = new OwnerList([new Owner('Tonicao', 22, '(81)99546-4788', '103.724.454-03', 'Narnia', 'pvfls@cin.ufpe.br'), new Owner('Pulho do Cachorro quente', 69, '4002-8922', '666.666.666-66', 'Hallway to hell', 'pvoa@suicideboy.com')]);
 
 var allowCrossDomain = function(req: any, res: any, next: any) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -18,7 +18,7 @@ var allowCrossDomain = function(req: any, res: any, next: any) {
     next();
 }
 app.use(allowCrossDomain);
-
+/*
 app.post('/desmarcar', jsonParser, function (req: express.Request, res: express.Response) {
   let agendamento: Agendamento = Object.assign(new Agendamento(), req.body);
   
@@ -28,9 +28,9 @@ app.post('/desmarcar', jsonParser, function (req: express.Request, res: express.
     res.send({"failure": "O agendamento não pode ser desmarcado"});
   }
 });
-
-app.get('/agendamentos', function (req: express.Request, res: express.Response) {
-  res.send(JSON.stringify(agendamentos.getAgendamentos()))
+*/
+app.get('/ownersList', function (req: express.Request, res: express.Response) {
+  res.send(JSON.stringify(owners.getOwners()))
 });
 
 app.listen(portNumber, () =>

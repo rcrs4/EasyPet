@@ -1,21 +1,31 @@
 
-export class Agendamento{
-    nome:string;
-    id:string;
+export class Owner{
+    name:string;
+    age: number|undefined;
+    fone:string;
+    cpf:string;
+    address:string;
+    email:string;
 
-    constructor(nome?: string, id?: string) {
-        this.nome = nome || '';
-        this.id = id || '';
+
+
+    constructor(name?: string, age?: number, fone?: string, cpf?: string, address?: string, email?: string) {
+        this.name = name || '';
+        this.age = age;
+        this.fone = fone || '';
+        this.cpf = cpf || '';
+        this.address = address || '';
+        this.email = email || '';
     }
 }
 
-export class AgendamentoList{
-    agendamentos: Agendamento[];
+export class OwnerList{
+    owners: Owner[];
 
-    constructor(agendamentos:Agendamento[]){
-        this.agendamentos = agendamentos
+    constructor(owners:Owner[]){
+        this.owners = owners
     }
-
+/*
     desmarcarAgendamento(agendamento: Agendamento){
 
         let new_agendamentos = this.filterAgendamentos(agendamento)
@@ -41,8 +51,8 @@ export class AgendamentoList{
         }
         return new_agendamentos;
     }
-
-    getAgendamentos(){
-        return this.agendamentos.slice();
+*/
+    getOwners(){
+        return this.owners.slice();
     }
 }

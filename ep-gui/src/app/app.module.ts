@@ -6,10 +6,10 @@ import { RouterModule }   from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AgendamentoService } from './agendamento.service';
 import { OwnerRegistrationComponent } from './owner-registration/owner-registration.component';
 import { OwnerSearchComponent } from './owner-search/owner-search.component';
 import { OwnerListComponent } from './owner-list/owner-list.component';
+import { OwnerListService} from './owner-list/owner-list.service'
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import { OwnerListComponent } from './owner-list/owner-list.component';
       }
     ])
   ],
-  providers: [AgendamentoService],
+  providers: [OwnerListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
