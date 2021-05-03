@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DesmarcarConsultas } from './desmarcar.component';
 import { AgendamentoService } from './agendamento.service';
+import { PetService } from './pet-list/pet.service';
 import { AppointmentFilterComponent } from './appointment-filter/appointment-filter.component';
 import { PetListComponent } from './pet-list/pet-list.component';
 
@@ -41,7 +42,7 @@ import { PetListComponent } from './pet-list/pet-list.component';
       }
     ])
   ],
-  providers: [AgendamentoService],
+  providers: [AgendamentoService, PetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

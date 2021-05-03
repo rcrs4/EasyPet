@@ -1,1 +1,23 @@
 <p>pet-list works!</p>
+<p-table [value]="pets">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Nome</th>
+            <th>Espécie</th>
+            <th>Raça</th>
+            <th>Idade</th>
+            <th>Peso</th>
+            <th>Dono</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-pet>
+        <tr>
+            <td>{{pet.nome}}</td>
+            <td>{{pet.especie}}</td>
+            <td>{{pet.raca}}</td>
+            <td>{{pet.idade}}</td>
+            <td>{{pet.peso}}</td>
+            <td>{{pet.dono}}</td>
+        </tr>
+    </ng-template>
+</p-table>
