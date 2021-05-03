@@ -1,9 +1,9 @@
 <p-table [value]="appointments">
     <ng-template pTemplate="header">
         <tr>
-            <th>Data</th>
-            <th>Horário</th>
-            <th>Veterinário</th>
+            <th pSortableColumn="data">Data</th>
+            <th pSortableColumn="horario">Horário</th>
+            <th pSortableColumn="veterinario">Veterinário</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-appointment>
