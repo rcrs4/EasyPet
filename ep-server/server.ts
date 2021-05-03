@@ -16,7 +16,9 @@ const funTemporaria = () => {
   ];
   const consultas = new ConsultaList(consultaList);
 
-  console.log(JSON.stringify(consultas.filterConsultsBy("3")));
+  consultas.filterOneConsultBy('b').descricao = 'pedro';
+
+  console.log(JSON.stringify(consultas.pets));
 }
 funTemporaria();
 
