@@ -12,7 +12,7 @@ let pets = new pet_1.PetList([new pet_1.Pet('0', 'Bob', 'cachorro', 'Golden Retr
     new pet_1.Pet('1', 'Rogério', 'gato', 'Sphynx', '3', 5, 'Marta'),
     new pet_1.Pet('2', 'Filomena', 'gato', 'British Shorthair', '4', 6, 'Alceu'),
     new pet_1.Pet('3', 'Faísca', 'cachorro', 'Border Collie', '1', 14, 'Pedro'),
-    new pet_1.Pet('4', 'Gus', 'cachorro', 'Vira-lata', '4', 7, 'Alceu')]);
+    new pet_1.Pet('4', 'Gus', 'cachorro', 'Vira-lata', '6', 7, 'Alceu')]);
 var allowCrossDomain = function (req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');

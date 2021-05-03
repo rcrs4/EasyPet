@@ -26,4 +26,9 @@ Scenario: Visualizar a tabela ordenada alfabeticamente pelos nomes dos donos
     Then o sistema retorna a tabela ordenada com os nomes dos donos "Alceu", "Manoel" e "Pedro", nesta ordem
 
 # Service
-Scenario: 
+Scenario: Obter lista de pets registrados para um determinado dono
+    Given o dono "Alceu" está associado ao pet de id "2" e nome "Filomena"
+    And o dono "Alceu" está associado ao pet de id "4" e nome "Gus"
+    When eu pergunto ao sistema pelos pets com dono "Alceu"
+    Then o sistema retorna o pet com id "2" e nome "Filomena"
+    And o sistema retorna o pet com id "4" e nome "Gus"
