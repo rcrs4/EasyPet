@@ -2,7 +2,7 @@ import { Injectable }    from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { retry, map } from 'rxjs/operators';
-import { OwnerList } from '../../../../common/ownerList';
+import { Owner } from '../../../../common/ownerList';
 
 @Injectable()
 export class OwnerListService{
@@ -11,8 +11,8 @@ export class OwnerListService{
 
     constructor(private http: HttpClient) {}
 
-    getOwnerList(): Observable<OwnerList[]>{
-        return this.http.get<OwnerList[]>(this.epURL + "/lista de donos").pipe( 
+    getOwnerList(): Observable<Owner[]>{
+        return this.http.get<Owner[]>(this.epURL + "/ownersList").pipe( 
             retry(2),
         ); 
     }
