@@ -7,19 +7,18 @@ import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { DesmarcarConsultas } from './agendamento/desmarcar/desmarcar.component';
 import { AgendamentoService } from './agendamento/agendamento.service';
+import { HistoricoModule } from './historico/historico.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DesmarcarConsultas
-  ],
+  declarations: [AppComponent, DesmarcarConsultas],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    HistoricoModule,
   ],
   providers: [AgendamentoService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

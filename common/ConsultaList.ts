@@ -32,5 +32,4 @@ export class ConsultaList {
     this._consultas.forEach(consulta => petsList.push(consulta.pet.nome));
     return petsList;
   }
-
 }
