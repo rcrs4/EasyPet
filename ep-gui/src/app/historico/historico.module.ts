@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { GeralViewComponent } from './geral-view/geral-view.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    GeralViewComponent,
+  ],
   imports: [
     CommonModule
   ]
