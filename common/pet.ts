@@ -4,16 +4,16 @@ export class Pet{
     especie:string;
     raca:string;
     idade:string;
-    peso:string;
+    peso:number;
     dono:string;
 
-    constructor(id?: string, nome?: string, especie?: string, raca?: string, idade?: string, peso?: string, dono?: string) {
+    constructor(id?: string, nome?: string, especie?: string, raca?: string, idade?: string, peso?: number, dono?: string) {
         this.id = id || '';
         this.nome = nome || '';
         this.especie = especie || '';
         this.raca = raca || '';
         this.idade = idade || '';
-        this.peso = peso || '';
+        this.peso = peso || 0;
         this.dono = dono || '';
     }
 }

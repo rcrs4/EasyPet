@@ -8,10 +8,10 @@ var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
 const portNumber = 3333;
 let agendamentos = new agendamento_1.AgendamentoList([new agendamento_1.Agendamento('teste', '1'), new agendamento_1.Agendamento('teste2', '2'), new agendamento_1.Agendamento('teste3', '3')]);
-let pets = new pet_1.PetList([new pet_1.Pet('0', 'Bob', 'cachorro', 'Golden Retriever', '5', '30 kg', 'Manoel'),
-    new pet_1.Pet('1', 'Rogério', 'gato', 'Sphynx', '3', '5 kg', 'Marta'),
-    new pet_1.Pet('2', 'Filomena', 'gato', 'British Shorthair', '4', '5,5 kg', 'Alceu'),
-    new pet_1.Pet('3', 'Faísca', 'cachorro', 'Border Collie', '1', '14 kg', 'Pedro')]);
+let pets = new pet_1.PetList([new pet_1.Pet('0', 'Bob', 'cachorro', 'Golden Retriever', '5', 30, 'Manoel'),
+    new pet_1.Pet('1', 'Rogério', 'gato', 'Sphynx', '3', 5, 'Marta'),
+    new pet_1.Pet('2', 'Filomena', 'gato', 'British Shorthair', '4', 6, 'Alceu'),
+    new pet_1.Pet('3', 'Faísca', 'cachorro', 'Border Collie', '1', 14, 'Pedro')]);
 var allowCrossDomain = function (req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');

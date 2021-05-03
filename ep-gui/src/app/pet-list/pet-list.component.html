@@ -1,12 +1,11 @@
-<p>pet-list works!</p>
 <p-table [value]="pets">
     <ng-template pTemplate="header">
         <tr>
             <th pSortableColumn="nome">Nome</th>
             <th pSortableColumn="especie">Espécie</th>
-            <th>Raça</th>
+            <th pSortableColumn="raca">Raça</th>
             <th pSortableColumn="idade">Idade</th>
-            <th>Peso</th>
+            <th pSortableColumn="peso">Peso(kg)</th>
             <th pSortableColumn="dono">Dono</th>
         </tr>
     </ng-template>

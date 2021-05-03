@@ -12,10 +12,10 @@ const portNumber = 3333;
 
 let agendamentos = new AgendamentoList([new Agendamento('teste', '1'), new Agendamento('teste2', '2'), new Agendamento('teste3', '3')]);
 
-let pets = new PetList([new Pet('0', 'Bob', 'cachorro', 'Golden Retriever', '5', '30 kg', 'Manoel'), 
-                        new Pet('1', 'Rogério', 'gato', 'Sphynx', '3', '5 kg', 'Marta'), 
-                        new Pet('2', 'Filomena', 'gato', 'British Shorthair', '4', '5,5 kg', 'Alceu'),
-                        new Pet('3', 'Faísca', 'cachorro', 'Border Collie', '1', '14 kg', 'Pedro')]);
+let pets = new PetList([new Pet('0', 'Bob', 'cachorro', 'Golden Retriever', '5', 30, 'Manoel'), 
+                        new Pet('1', 'Rogério', 'gato', 'Sphynx', '3', 5, 'Marta'), 
+                        new Pet('2', 'Filomena', 'gato', 'British Shorthair', '4', 6, 'Alceu'),
+                        new Pet('3', 'Faísca', 'cachorro', 'Border Collie', '1', 14, 'Pedro')]);
 
 var allowCrossDomain = function(req: any, res: any, next: any) {
     res.header('Access-Control-Allow-Origin', "*");

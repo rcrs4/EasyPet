@@ -7,7 +7,7 @@ class Pet {
         this.especie = especie || '';
         this.raca = raca || '';
         this.idade = idade || '';
-        this.peso = peso || '';
+        this.peso = peso || 0;
         this.dono = dono || '';
     }
 }
