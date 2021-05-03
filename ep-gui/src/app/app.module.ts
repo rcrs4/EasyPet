@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { RouterModule }   from '@angular/router';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DesmarcarConsultas } from './desmarcar.component';
-import { AgendamentoService } from './agendamento.service';
+
+import { AppRoutingModule } from './app.routing.module';
+import { AppComponent } from './app.component';
+import { DesmarcarConsultas } from './agendamento/desmarcar/desmarcar.component';
+import { AgendamentoService } from './agendamento/agendamento.service';
 
 @NgModule({
   declarations: [
@@ -19,12 +18,6 @@ import { AgendamentoService } from './agendamento.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      {
-        path: 'desmarcar',
-        component: DesmarcarConsultas
-      }
-    ])
   ],
   providers: [AgendamentoService],
   bootstrap: [AppComponent]
