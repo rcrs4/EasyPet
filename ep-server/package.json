@@ -4,7 +4,7 @@
   "description": "Servidor do EasyPet",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run tsc && jasmine --config=./spec/support/jasmine.json",
     "tsc": "./node_modules/typescript/bin/tsc",
     "start": "npm run tsc && node compiledCode/ep-server/server.js"
   },
@@ -16,6 +16,11 @@
     "express": "^4.15.4"
   },
   "devDependencies": {
+    "@types/jasmine": "^2.8.9",
+    "@types/request-promise": "^4.1.38",
+    "jasmine": "^2.8.0",
+    "request": "^2.34",
+    "request-promise": "^4.2.2",
     "typescript": "~3.5.3"
   }
 }

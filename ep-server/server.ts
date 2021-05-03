@@ -31,7 +31,6 @@ app.post('/desmarcar', jsonParser, function (req: express.Request, res: express.
 
 app.post('/filterInPet', jsonParser, function (req: express.Request, res: express.Response) {
   let petName = req.body
-  console.log(petName.name)
   res.send(JSON.stringify(agendamentos.filterPetInAgendamentos(petName.name)));
 });
 
@@ -39,6 +38,12 @@ app.get('/agendamentos', function (req: express.Request, res: express.Response) 
   res.send(JSON.stringify(agendamentos.getAgendamentos()))
 });
 
-app.listen(portNumber, () =>
+var server = app.listen(portNumber, () =>
   console.log(`Server is running on port ${portNumber}`)
 );
+
+function closeServer(): void {
+  server.close();
+}
+
+export { server, closeServer }
