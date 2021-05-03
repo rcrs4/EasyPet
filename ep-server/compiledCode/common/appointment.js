@@ -4,7 +4,7 @@ class Appointment {
     constructor(id, data, horario, veterinario) {
         this.id = id || '';
         this.data = data || '';
-        this.horario = horario || '';
+        this.horario = horario || 0;
         this.veterinario = veterinario || '';
     }
 }

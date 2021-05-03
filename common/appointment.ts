@@ -2,13 +2,13 @@
 export class Appointment{
     id:string;
     data:string;
-    horario:string;
+    horario:number;
     veterinario:string;
 
-    constructor(id?: string, data?: string, horario?: string, veterinario?: string) {
+    constructor(id?: string, data?: string, horario?: number, veterinario?: string) {
         this.id = id || '';
         this.data = data || '';
-        this.horario = horario || '';
+        this.horario = horario || 0;
         this.veterinario = veterinario || '';
     }
 }

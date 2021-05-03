@@ -11,7 +11,7 @@ var jsonParser = bodyParser.json();
 const portNumber = 3333;
 
 let agendamentos = new AgendamentoList([new Agendamento('teste', '1'), new Agendamento('teste2', '2'), new Agendamento('teste3', '3')]);
-let appointments = new AppointmentList([new Appointment('0', '22/03', '10h', 'Dr.Tonicao'), new Appointment('1', '22/03', '10h', 'Dr.Manel'), new Appointment('2', '23/03', '8h', 'Dr.Pedoka'), new Appointment('3', '24/03', '15h', 'Dr.Ruivin')])
+let appointments = new AppointmentList([new Appointment('0', '22/03', 10, 'Dr.Tonicao'), new Appointment('1', '22/03', 10, 'Dr.Manel'), new Appointment('2', '23/03', 8, 'Dr.Pedoka'), new Appointment('3', '24/03', 15, 'Dr.Ruivin'), new Appointment('4', '23/03', 16, 'Dr.Tonicao')])
 
 var allowCrossDomain = function(req: any, res: any, next: any) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -38,6 +38,19 @@ app.get('/agendamentos', function (req: express.Request, res: express.Response) 
 app.get('/horarios', function (req: express.Request, res: express.Response) {
   res.send(JSON.stringify(appointments.getAppointments()))
 });
+
+app.get('/horarios/:veterinario', function (req: express.Request, res: express.Response) {
+  // res.send(JSON.stringify(pets.getPets()))
+  const veterinario = req.params.veterinario;
+  let tempList:Appointment[] = [];
+  appointments.getAppointments().forEach((appointment:Appointment) => {
+    if( appointment.veterinario == veterinario ) {
+      tempList.push(appointment)
+    }
+  });
+  res.send(JSON.stringify(tempList))
+});
+
 
 app.listen(portNumber, () =>
   console.log(`Server is running on port ${portNumber}`)
