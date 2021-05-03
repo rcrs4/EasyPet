@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Pet} from '../../../../common/pet'
 
 @Component({
   selector: 'app-pet-list',

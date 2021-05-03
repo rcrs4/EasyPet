@@ -1,5 +1,6 @@
 import * as express from "express";
 import {Agendamento, AgendamentoList}from "../common/agendamento"
+import {Pet, PetList}from "../common/pet"
 import { AgendamentoService } from "../ep-gui/src/app/agendamento.service";
 const app = express();
 
@@ -10,6 +11,11 @@ var jsonParser = bodyParser.json();
 const portNumber = 3333;
 
 let agendamentos = new AgendamentoList([new Agendamento('teste', '1'), new Agendamento('teste2', '2'), new Agendamento('teste3', '3')]);
+
+let pets = new PetList([new Pet('0', 'Bob', 'cachorro', 'Golden Retriever', '5', '30 kg', 'Manoel'), 
+                        new Pet('1', 'Rogério', 'gato', 'Sphynx', '3', '5 kg', 'Marta'), 
+                        new Pet('2', 'Filomena', 'gato', 'British Shorthair', '4', '5,5 kg', 'Alceu'),
+                        new Pet('3', 'Faísca', 'cachorro', 'Border Collie', '1', '14 kg', 'Pedro')]);
 
 var allowCrossDomain = function(req: any, res: any, next: any) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -31,6 +37,10 @@ app.post('/desmarcar', jsonParser, function (req: express.Request, res: express.
 
 app.get('/agendamentos', function (req: express.Request, res: express.Response) {
   res.send(JSON.stringify(agendamentos.getAgendamentos()))
+});
+
+app.get('/pets', function (req: express.Request, res: express.Response) {
+  res.send(JSON.stringify(pets.getPets()))
 });
 
 app.listen(portNumber, () =>
