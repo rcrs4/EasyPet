@@ -23,5 +23,4 @@ export class OwnerListComponent implements OnInit {
       err => console.error('Error getting Owners List')
     )
   }
-
 }
