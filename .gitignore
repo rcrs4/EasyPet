@@ -44,3 +44,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+node_modules
+ep-server/compiledCode/
+tests-acceptance/compiledCode/
+ep-server/node_modules/
+ep-gui/node_modules/
+tests-acceptance/node_modules/

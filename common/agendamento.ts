@@ -1,11 +1,12 @@
 
 export class Agendamento{
-    nome:string;
+    data:string;
     id:string;
-
-    constructor(nome?: string, id?: string) {
-        this.nome = nome || '';
+    pet:any;
+    constructor(data?: string, id?: string, pet?: any) {
+        this.data = data || '';
         this.id = id || '';
+        this.pet = pet || {nome:''}
     }
 }
 
@@ -19,7 +20,7 @@ export class AgendamentoList{
     desmarcarAgendamento(agendamento: Agendamento){
 
         let new_agendamentos = this.filterAgendamentos(agendamento)
-        console.log(new_agendamentos)
+        
         if(new_agendamentos === null){
             return [];
         }else{
@@ -32,7 +33,7 @@ export class AgendamentoList{
     filterAgendamentos(agendamento: Agendamento): Agendamento[] | null{
         let new_agendamentos: Agendamento[] = [];
         for(let agen of this.agendamentos){
-            if(agendamento.nome !== agen.nome && agendamento.id !== agen.id){
+            if(agendamento.data !== agen.data && agendamento.id !== agen.id){
                 new_agendamentos.push(agen);
             }
         }
@@ -40,6 +41,11 @@ export class AgendamentoList{
             return null;
         }
         return new_agendamentos;
+    }
+
+    filterPetInAgendamentos(petName: string): Agendamento[]{
+        let filtered: Agendamento[] = this.agendamentos.slice().filter(a => a.pet.nome === petName)
+        return filtered
     }
 
     getAgendamentos(){

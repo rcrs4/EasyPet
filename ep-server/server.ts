@@ -2,6 +2,7 @@ import * as express from "express";
 import {Agendamento, AgendamentoList}from "../common/agendamento"
 import {Appointment, AppointmentList}from "../common/appointment"
 import { AgendamentoService } from "../ep-gui/src/app/agendamento.service";
+
 const app = express();
 
 var bodyParser = require('body-parser');
@@ -10,7 +11,7 @@ var jsonParser = bodyParser.json();
 
 const portNumber = 3333;
 
-let agendamentos = new AgendamentoList([new Agendamento('teste', '1'), new Agendamento('teste2', '2'), new Agendamento('teste3', '3')]);
+let agendamentos = new AgendamentoList([new Agendamento('20/04/2021', '1', {nome: 'zeze'}), new Agendamento('20/04/2020', '2', {nome: 'spike'}), new Agendamento('21/04/2021', '3', {nome: 'zeze'})]);
 let appointments = new AppointmentList([new Appointment('0', '22/03', 10, 'Dr.Tonicao'), new Appointment('1', '22/03', 10, 'Dr.Manel'), new Appointment('2', '23/03', 8, 'Dr.Pedoka'), new Appointment('3', '24/03', 15, 'Dr.Ruivin'), new Appointment('4', '23/03', 16, 'Dr.Tonicao')])
 
 var allowCrossDomain = function(req: any, res: any, next: any) {
@@ -24,11 +25,17 @@ app.use(allowCrossDomain);
 app.post('/desmarcar', jsonParser, function (req: express.Request, res: express.Response) {
   let agendamento: Agendamento = Object.assign(new Agendamento(), req.body);
   
-  if (agendamentos.desmarcarAgendamento(agendamento) != []) {
+  if (agendamentos.desmarcarAgendamento(agendamento) !== []) {
     res.send({"success": "O agendamento foi desmarcado com sucesso"});
   } else {
     res.send({"failure": "O agendamento não pode ser desmarcado"});
   }
+});
+
+app.post('/filterInPet', jsonParser, function (req: express.Request, res: express.Response) {
+  let petName = req.body
+  console.log(petName.name)
+  res.send(JSON.stringify(agendamentos.filterPetInAgendamentos(petName.name)));
 });
 
 app.get('/agendamentos', function (req: express.Request, res: express.Response) {
