@@ -13,7 +13,7 @@ const portNumber = 3333;
 let agendamentos = new AgendamentoList([new Agendamento('teste', '1'), new Agendamento('teste2', '2'), new Agendamento('teste3', '3')]);
 
 let pets = new PetList([new Pet('0', 'Bob', 'cachorro', 'Golden Retriever', '5', 30, 'Manoel'), 
-                        new Pet('1', 'Rogério', 'gato', 'Sphynx', '3', 5, 'Marta'), 
+                        new Pet('1', 'Rogério', 'gato', 'Sphynx', '3', 5, 'Marta'),
                         new Pet('2', 'Filomena', 'gato', 'British Shorthair', '4', 6, 'Alceu'),
                         new Pet('3', 'Faísca', 'cachorro', 'Border Collie', '1', 14, 'Pedro')]);
 
@@ -41,6 +41,16 @@ app.get('/agendamentos', function (req: express.Request, res: express.Response) 
 
 app.get('/pets', function (req: express.Request, res: express.Response) {
   res.send(JSON.stringify(pets.getPets()))
+});
+
+app.get('/pets/:dono', function (req: express.Request, res: express.Response) {
+  // res.send(JSON.stringify(pets.getPets()))
+  const dono = req.params.dono;
+  pets.getPets().forEach((pet:Pet) => {
+    if( pet.dono == dono ) {
+      res.send(JSON.stringify(pet))
+    }
+  });
 });
 
 app.listen(portNumber, () =>
