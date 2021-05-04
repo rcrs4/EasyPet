@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Consulta } from '../../consulta';
 import { HistoricoService } from '../../historico.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { HistoricoService } from '../../historico.service';
   styleUrls: ['./pet-consult-detail.component.css'],
 })
 export class PetConsultDetailComponent implements OnInit {
-  consulta: ConsultaGamb = { data: '', id: '', pet: { nome: '' }, _descricao: '' };
+  consulta: Consulta = { data: '', id: '', pet: { nome: '' }, _descricao: '' };
   pet: Pet = { nome: '' };
   descricao: string = '';
 
@@ -31,13 +32,6 @@ export class PetConsultDetailComponent implements OnInit {
   }
 }
 
-export interface Pet {
+interface Pet {
   nome: string;
-}
-
-export interface ConsultaGamb {
-  data: string;
-  id: string;
-  pet: Pet;
-  _descricao: string;
 }

@@ -6,17 +6,11 @@ import {
   ConsultaList,
 } from "../common/index";
 
+import ConsultasBD from './bd/ConsultasBD';
+const consultas: ConsultaList = new ConsultaList(ConsultasBD());
+
 const app = express();
-//==============
-const consultaList: Consulta[] = [
-  new Consulta("a", "b", { nome: "c" }, "d"),
-  new Consulta("A", "B", { nome: "c" }, "D"),
-  new Consulta("1", "2", { nome: "abacate" }, "4"),
-];
-const consultas = new ConsultaList(consultaList);
-consultas.filterOneConsultBy('b').descricao = 'pedro';
-console.log(JSON.stringify(consultas.pets));
-//==============
+
 var bodyParser = require("body-parser");
 
 var jsonParser = bodyParser.json();
