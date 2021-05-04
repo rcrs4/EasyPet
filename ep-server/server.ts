@@ -60,6 +60,10 @@ app.get('/horarios/:veterinario', function (req: express.Request, res: express.R
   appointments.getAppointments().forEach((appointment:Appointment) => {
     if( appointment.veterinario == veterinario ) {
       tempList.push(appointment)
+    }
+    });
+    res.send(JSON.stringify(tempList))
+  });
 
 app.get('/pets', function (req: express.Request, res: express.Response) {
   res.send(JSON.stringify(pets.getPets()))
