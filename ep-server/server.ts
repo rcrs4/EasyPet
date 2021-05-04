@@ -77,6 +77,13 @@ app.get(
   }
 );
 
+app.get(
+  "/historico/consulta/:consultaId",
+  (req: express.Request, res: express.Response) => {
+    res.send(JSON.stringify(consultas.filterOneConsultBy(req.params.consultaId)));
+  }
+);
+
 app.get('/pets', (req: express.Request, res: express.Response) => {
   res.send(consultas.pets);
 });

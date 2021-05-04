@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { Consulta } from '../../consulta';
 
 @Component({
@@ -10,7 +11,21 @@ export class PetConsultComponent implements OnChanges {
   @Input() consultas: Consulta[] = [];
   @Input() petName: string = '';
 
-  constructor() {}
+  constructor(
+    private router: Router
+  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {}
+
+  getConsultDetails(params:string = '') {
+    const navigationDetails: string[] = ['/historico/consulta'];
+
+    if(params.length) {
+      navigationDetails.push(params);
+    }
+
+    this.router.navigate(navigationDetails);
+  }
+
+  getProntuario() {}
 }

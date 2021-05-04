@@ -15,4 +15,8 @@ export class HistoricoService {
   getConsultsFromPet(petName: string) {
     return this.http.get<Consulta[]>(API + '/historico/pets/' + petName);
   }
+
+  getConsultById(consultaId: string) {
+    return this.http.get<Consulta>(API + "/historico/consulta/" + consultaId);
+  }
 }

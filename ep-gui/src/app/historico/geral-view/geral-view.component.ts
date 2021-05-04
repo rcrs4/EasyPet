@@ -22,8 +22,6 @@ export class GeralViewComponent implements OnInit {
   }
 
   onPetSelect(params:string = ''): void {
-    console.log('cheguei');
-
     const navigationDetails: string[] = ['/historico/pets'];
 
     if(params.length) {
