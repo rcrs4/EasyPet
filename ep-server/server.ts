@@ -1,13 +1,16 @@
 import * as express from "express";
+
 import {
   Agendamento,
   AgendamentoList,
   Consulta,
   ConsultaList,
+  Appointment,
+  AppointmentList,
+  Pet,
+  PetList
 } from "../common/index";
 
-import ConsultasBD from './bd/ConsultasBD';
-const consultas: ConsultaList = new ConsultaList(ConsultasBD());
 
 const app = express();
 
@@ -17,11 +20,18 @@ var jsonParser = bodyParser.json();
 
 const portNumber = 3333;
 
-let agendamentos = new AgendamentoList([
-  new Agendamento("20/04/2021", "1", { nome: "zeze" }),
-  new Agendamento("20/04/2020", "2", { nome: "spike" }),
-  new Agendamento("21/04/2021", "3", { nome: "zeze" }),
-]);
+
+import ConsultasBD from './bd/ConsultasBD';
+const consultas: ConsultaList = new ConsultaList(ConsultasBD());
+
+let agendamentos = new AgendamentoList([new Agendamento('20/04/2021', '1', {nome: 'zeze'}), new Agendamento('20/04/2020', '2', {nome: 'spike'}), new Agendamento('21/04/2021', '3', {nome: 'zeze'})]);
+let appointments = new AppointmentList([new Appointment('0', '22/03', 10, 'Dr.Tonicao'), new Appointment('1', '22/03', 10, 'Dr.Manel'), new Appointment('2', '23/03', 8, 'Dr.Pedoka'), new Appointment('3', '24/03', 15, 'Dr.Ruivin'), new Appointment('4', '23/03', 16, 'Dr.Tonicao')])
+
+let pets = new PetList([new Pet('0', 'Bob', 'cachorro', 'Golden Retriever', '5', 30, 'Manoel'),
+                        new Pet('1', 'Rogério', 'gato', 'Sphynx', '3', 5, 'Marta'),
+                        new Pet('2', 'Filomena', 'gato', 'British Shorthair', '4', 6, 'Alceu'),
+                        new Pet('3', 'Faísca', 'cachorro', 'Border Collie', '1', 14, 'Pedro'),
+                        new Pet('4', 'Gus', 'cachorro', 'Vira-lata', '6', 7, 'Alceu')]);
 
 var allowCrossDomain = function (req: any, res: any, next: any) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -29,6 +39,8 @@ var allowCrossDomain = function (req: any, res: any, next: any) {
   res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
 };
+
+
 app.use(allowCrossDomain);
 
 app.post(
@@ -82,6 +94,39 @@ app.get('/pets', (req: express.Request, res: express.Response) => {
   res.send(consultas.pets);
 });
 
-app.listen(portNumber, () =>
+app.get('/horarios', function (req: express.Request, res: express.Response) {
+  res.send(JSON.stringify(appointments.getAppointments()))
+});
+
+app.get('/horarios/:veterinario', function (req: express.Request, res: express.Response) {
+  // res.send(JSON.stringify(pets.getPets()))
+  const veterinario = req.params.veterinario;
+  let tempList:Appointment[] = [];
+  appointments.getAppointments().forEach(
+    (appointment:Appointment) => {
+      if( appointment.veterinario == veterinario ) {
+        tempList.push(appointment)
+      }
+    })
+});
+
+app.get('/pets', function (req: express.Request, res: express.Response) {
+  res.send(JSON.stringify(pets.getPets()))
+});
+
+app.get('/pets/:dono', function (req: express.Request, res: express.Response) {
+  // res.send(JSON.stringify(pets.getPets()))
+  const dono = req.params.dono;
+  let tempList:Pet[] = [];
+  pets.getPets().forEach((pet:Pet) => {
+    if( pet.dono == dono ) {
+      tempList.push(pet)
+    }
+  });
+  res.send(JSON.stringify(tempList))
+});
+
+app.listen(portNumber, () =>{
   console.log(`Server is running on port ${portNumber}`)
-);
+});
+

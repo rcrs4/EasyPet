@@ -3,22 +3,36 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { TableModule } from 'primeng/table';
+
 import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { DesmarcarConsultas } from './agendamento/desmarcar/desmarcar.component';
 import { AgendamentoService } from './agendamento/agendamento.service';
 import { HistoricoModule } from './historico/historico.module';
 
+import { AppointmentService } from './appointment-filter/queryTable.service';
+import { AppointmentFilterComponent } from './appointment-filter/appointment-filter.component';
+import { PetService } from './pet-list/pet.service';
+import { PetListComponent } from './pet-list/pet-list.component';
+
+
 @NgModule({
-  declarations: [AppComponent, DesmarcarConsultas],
+  declarations: [
+    AppComponent,
+    DesmarcarConsultas,
+    AppointmentFilterComponent,
+    PetListComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     HistoricoModule,
+    TableModule,
   ],
-  providers: [AgendamentoService],
-  bootstrap: [AppComponent],
+  providers: [AgendamentoService, PetService, AppointmentService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
