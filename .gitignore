@@ -50,3 +50,5 @@ tests-acceptance/compiledCode/
 ep-server/node_modules/
 ep-gui/node_modules/
 tests-acceptance/node_modules/
+ep-server/compiledCode/common/pet.js.map
+ep-server/compiledCode/common/pet.js

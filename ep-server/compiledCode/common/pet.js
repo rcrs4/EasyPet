@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.PetList = exports.Pet = void 0;
 class Pet {
     constructor(id, nome, especie, raca, idade, peso, dono) {
         this.id = id || '';

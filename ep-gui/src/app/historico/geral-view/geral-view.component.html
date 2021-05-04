@@ -1,8 +1,8 @@
-<h2 id="pageTitle">Histórico de consultas</h2>
+<h2 id="pageTitle">Historico de consultas</h2>
 <h3>O que você deseja ver?</h3>
 
 <table>
   <tr *ngFor='let pet of pets'>
-    <button (click)="onPetSelect(pet)">Detalhes de {{pet}}</button>
+    <button id="{{pet}}" (click)="onPetSelect(pet)">Detalhes de {{pet}}</button>
   </tr>
 </table>
