@@ -1,6 +1,15 @@
 <h2>Consultas de {{petName}}</h2>
 
 <table>
+  <tr>
+    <th>
+      Data
+    </th>
+    <th>
+      Resumo
+    </th>
+  </tr>
+
   <tr *ngFor="let consulta of consultas">
     <th>
       {{consulta.data}}
@@ -13,3 +22,4 @@
     </th>
   </tr>
 </table>
+<button>Imprimir Prontuário</button>

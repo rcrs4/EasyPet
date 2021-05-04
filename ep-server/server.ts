@@ -11,7 +11,7 @@ const app = express();
 const consultaList: Consulta[] = [
   new Consulta("a", "b", { nome: "c" }, "d"),
   new Consulta("A", "B", { nome: "c" }, "D"),
-  new Consulta("1", "2", { nome: "3" }, "4"),
+  new Consulta("1", "2", { nome: "abacate" }, "4"),
 ];
 const consultas = new ConsultaList(consultaList);
 consultas.filterOneConsultBy('b').descricao = 'pedro';
@@ -71,9 +71,9 @@ app.get(
 );
 
 app.get(
-  "/historico/pets/c",
+  "/historico/pets/:petName",
   (req: express.Request, res: express.Response) => {
-    res.send(JSON.stringify(consultas.filterConsultsBy('c')));
+    res.send(JSON.stringify(consultas.filterConsultsBy(req.params.petName)));
   }
 );
 

@@ -13,6 +13,6 @@ export class HistoricoService {
   }
 
   getConsultsFromPet(petName: string) {
-    return this.http.get<Consulta[]>(API + '/historico/pets/c');
+    return this.http.get<Consulta[]>(API + '/historico/pets/' + petName);
   }
 }
