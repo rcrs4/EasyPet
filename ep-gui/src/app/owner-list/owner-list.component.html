@@ -3,6 +3,7 @@
 <p-table [value]="owners">
     <ng-template pTemplate="header">
         <tr>
+            <th pSortableColumn="id">Id</th>
             <th pSortableColumn="name">Nome</th>
             <th pSortableColumn="age">Idade</th>
             <th pSortableColumn="fone">Fone</th>
@@ -14,6 +15,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-owner>
         <tr>
+            <td>{{owner.id}}</td>
             <td>{{owner.name}}</td>
             <td>{{owner.age}}</td>
             <td>{{owner.fone}}</td>
