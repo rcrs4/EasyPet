@@ -55,7 +55,6 @@ app.get('/horarios', function (req: express.Request, res: express.Response) {
 });
 
 app.get('/horarios/:veterinario', function (req: express.Request, res: express.Response) {
-  // res.send(JSON.stringify(pets.getPets()))
   const veterinario = req.params.veterinario;
   let tempList:Appointment[] = [];
   appointments.getAppointments().forEach((appointment:Appointment) => {
@@ -67,7 +66,6 @@ app.get('/pets', function (req: express.Request, res: express.Response) {
 });
 
 app.get('/pets/:dono', function (req: express.Request, res: express.Response) {
-  // res.send(JSON.stringify(pets.getPets()))
   const dono = req.params.dono;
   let tempList:Pet[] = [];
   pets.getPets().forEach((pet:Pet) => {
