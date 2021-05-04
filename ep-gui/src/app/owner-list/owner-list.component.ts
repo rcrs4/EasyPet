@@ -24,6 +24,16 @@ export class OwnerListComponent implements OnInit {
     )
   }
 
-
-
+  filterOwner(owner: Owner): Owner[] | null{
+    let new_owners: Owner[] = [];
+    for(let aux of this.owners){
+        if(owner.age !== aux.age && owner.id !== aux.id){
+            new_owners.push(aux);
+        }
+    }
+    if(new_owners.length === this.owners.length){
+        return null;
+    }
+    return new_owners;
+  }
 }
