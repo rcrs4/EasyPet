@@ -14,3 +14,10 @@ Feature: Histórico de Consulta
     When acesso os detalhes de "zeze"
     Then o sistema retorna uma lista de consultas de "zeze" com aa datas "20/04/2021" e "21/04/2021"
     And sou redirecionado para "historico/pets/zeze"
+
+  Scenario: Visualização de histórico vazio
+    Given estou na pagina de "historico/pets/zeze"
+    And "zeze" tem consultas registrada no dia "20/04/2021" e "21/04/2021"
+    When nao faco nada
+    Then visualizo uma lista com as consultas do dia "20/04/2021" e "21/04/2021"
+    And visualizo botoes de acesso a detalhes das consultas do dia "20/04/2021" e "21/04/2021"

@@ -70,7 +70,33 @@ defineSupportCode(function ({ Given, When, Then }) {
     }
   );
 
-  Then("sou redirecionado para {stringInDoubleQuote}", async (newUrl: string) => {
-    navigateTo(newUrl);
-  });
+  Then(
+    "sou redirecionado para {stringInDoubleQuotes}",
+    async (newUrl: string) => {
+      navigateTo(newUrl);
+    }
+  );
+
+  Then(
+    "visualizo uma lista com as consultas do dia {stringInDoubleQuotes} e {stringInDoubleQuotes}",
+    async (data1: string, data2: string) => {
+      await element
+        .all(by.css(".dataConsulta"))
+        .map((element) => element.getText())
+        .then((dataList) => {
+          expect(dataList[0]).to.equal(data1);
+          expect(dataList[1]).to.equal(data2);
+        });
+    }
+  );
+
+  Then(
+    "visualizo botoes de acesso a detalhes das consultas do dia {stringInDoubleQuotes} e {stringInDoubleQuotes}",
+    async (data1: string, data2: string) => {
+      await expect(element(by.id('botao' + data1)).getText()).to.eventually.equal('Detalhes');
+      await expect(element(by.id('botao' + data2)).getText()).to.eventually.equal('Detalhes');
+    }
+  );
+
+  Then("", () => {});
 });

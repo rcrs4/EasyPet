@@ -16,14 +16,14 @@
     </tr>
 
     <tr *ngFor="let consulta of consultas">
-      <th>
+      <th class='dataConsulta'>
         {{consulta.data}}
       </th>
       <th>
         {{consulta._descricao}}
       </th>
       <th>
-        <button name="AcessarDetalhesConsulta" (click)="getConsultDetails(consulta.id)">Detalhes</button>
+        <button id=botao{{consulta.data}} name="AcessarDetalhesConsulta" (click)="getConsultDetails(consulta.id)">Detalhes</button>
       </th>
     </tr>
   </table>
