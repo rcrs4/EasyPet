@@ -16,4 +16,9 @@ export class PetService{
             retry(2),
         ); 
     }
+    getPetsNome(): Observable<Pet[]>{
+        return this.http.get<Pet[]>(this.epURL + "/pets/sorted").pipe( 
+            retry(2),
+        ); 
+    }
 }
