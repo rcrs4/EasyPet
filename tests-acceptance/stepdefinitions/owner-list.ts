@@ -83,56 +83,9 @@ defineSupportCode(function ({ Given, When, Then }) {
         await element.all(by.css('#ownerAgeRow')).map( function (element){
             return element.getText();
         }).then( function (ownerTabColumn){
-            // console.log(ownerTabColumn);
             expect(ownerTabColumn[0]).to.equal(age1);
             expect(ownerTabColumn[1]).to.equal(age2);
             expect(ownerTabColumn[2]).to.equal(age3);
         } );
     });
-
-    /*
-    Given('que o sistema tem um agendamento de {stringInDoubleQuotes} para a data {stringInDoubleQuotes} com o id {stringInDoubleQuotes}', async (pet, data, id) => {
-        await request.get(base_url + "agendamentos")
-                .then(body =>
-                    expect(body.includes('{"data":"'+data+'","id":"'+id+'","pet":{"nome":"'+pet+'"}')).to.equal(true));
-        
-    });
-
-    When('eu desmarco o agendamento de {stringInDoubleQuotes} para a data {stringInDoubleQuotes} com o id {stringInDoubleQuotes}', async (pet, data, id) => {
-        let agendamento = {"data":data, "id":id, "pet":{"nome":pet}};
-        var options:any = {method: 'POST', uri: (base_url + "desmarcar"), body:agendamento, json: true};
-        await request(options)
-                .then(body =>
-                    expect(JSON.stringify(body)).to.equal('{"success":"O agendamento foi desmarcado com sucesso"}'));
-    });
-
-    Then('o sistema agora nao tem mais agendamento de {stringInDoubleQuotes} para a data {stringInDoubleQuotes} com o id {stringInDoubleQuotes}', async(pet, data, id) => {
-        await request.get(base_url + "agendamentos")
-                .then(body =>
-                    expect(body.includes('{"data":"'+data+'","id":"'+id+'","pet":{"nome":"'+pet+'"}')).to.equal(false));
-    });
-
-    Given('que o sistema tem agendamentos de {stringInDoubleQuotes} e de {stringInDoubleQuotes}', async (pet1, pet2) => {
-        await request.get(base_url + "agendamentos")
-                .then(body =>
-                    expect(body.includes('{"nome":"'+pet1+'"}') && body.includes('{"nome":"'+pet2+'"}')).to.equal(true));
-        
-    });
-
-    When('eu filtro por {stringInDoubleQuotes}', async (pet) => {
-        let agendamento = {"name":pet};
-        var options:any = {method: 'POST', uri: (base_url + "filterInPet"), body:agendamento, json: true};
-        await request(options)
-                .then(body =>
-                    expect(body.includes('{"nome":"'+pet+'"}')).to.equal(false));
-    });
-
-    Then('o sistema retorna apenas agendamentos de {stringInDoubleQuotes} e nao mais de {stringInDoubleQuotes}', async(pet1, pet2) => {
-        let agendamento = {"name":pet1};
-        var options:any = {method: 'POST', uri: (base_url + "filterInPet"), body:agendamento, json: true};
-        await request(options)
-                .then(body =>
-                    expect(body.includes('{"nome":"'+pet2+'"}')).to.equal(false));
-    });
-    */
 })
