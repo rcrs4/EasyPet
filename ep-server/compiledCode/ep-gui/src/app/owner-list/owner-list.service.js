@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OwnerListService = void 0;
 const core_1 = require("@angular/core");
 const http_1 = require("@angular/common/http");
 const operators_1 = require("rxjs/operators");

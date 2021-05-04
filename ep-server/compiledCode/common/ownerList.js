@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OwnerList = exports.Owner = void 0;
 class Owner {
     constructor(name, age, fone, cpf, address, email, pets) {
         this.name = name || '';
