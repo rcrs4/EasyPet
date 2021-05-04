@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { HistoricoService } from '../historico.service';
 
 @Component({
@@ -12,7 +12,6 @@ export class GeralViewComponent implements OnInit {
 
   constructor(
     private historicoService: HistoricoService,
-    private activatedRoute: ActivatedRoute,
     private router: Router
   ) {}
 
@@ -32,7 +31,5 @@ export class GeralViewComponent implements OnInit {
     }
 
     this.router.navigate(navigationDetails);
-
-    this.activatedRoute
   }
 }

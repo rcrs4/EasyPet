@@ -66,8 +66,14 @@ app.post(
 app.get(
   "/agendamentos",
   function (req: express.Request, res: express.Response) {
-    console.log('what happened?')
     res.send(JSON.stringify(agendamentos.getAgendamentos()));
+  }
+);
+
+app.get(
+  "/historico/pets/c",
+  (req: express.Request, res: express.Response) => {
+    res.send(JSON.stringify(consultas.filterConsultsBy('c')));
   }
 );
 

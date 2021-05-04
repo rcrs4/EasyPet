@@ -8,7 +8,7 @@ import { PetViewComponent } from './historico/pet-view/pet-view.component';
 const routes: Routes = [
   { path: 'desmarcar', component: DesmarcarConsultas },
   { path: 'historico', component: GeralViewComponent },
-  { path: 'historico/pets/:pet', component: PetViewComponent}
+  { path: 'historico/pets/:petName', component: PetViewComponent}
 ];
 
 @NgModule({
