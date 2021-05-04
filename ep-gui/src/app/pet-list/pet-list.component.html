@@ -1,7 +1,9 @@
+<h2 id="pageTitle">Pet List</h2>
+
 <p-table [value]="pets">
     <ng-template pTemplate="header">
         <tr>
-            <th pSortableColumn="nome">Nome</th>
+            <th name="nomeColumn" pSortableColumn="nome">Nome</th>
             <th pSortableColumn="especie">Espécie</th>
             <th pSortableColumn="raca">Raça</th>
             <th pSortableColumn="idade">Idade</th>
@@ -11,7 +13,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-pet>
         <tr>
-            <td>{{pet.nome}}</td>
+            <td id="petNameRow">{{pet.nome}}</td>
             <td>{{pet.especie}}</td>
             <td>{{pet.raca}}</td>
             <td>{{pet.idade}}</td>

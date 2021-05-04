@@ -21,7 +21,13 @@ export class AgendamentoService{
     getAgendamentos(): Observable<Agendamento[]>{
         return this.http.get<Agendamento[]>(this.epURL + "/agendamentos").pipe( 
             retry(2),
-        ); 
+        );
+    }
+
+    filterInPet(petName: string): Observable<Agendamento[]>{
+        return this.http.post<Agendamento[]>(this.epURL + "/filterInPet",JSON.stringify({'name':petName}), {headers: this.headers}).pipe( 
+            retry(2),
+        );
     }
 
 }

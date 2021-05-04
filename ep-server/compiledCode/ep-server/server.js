@@ -7,7 +7,7 @@ const app = express();
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
 const portNumber = 3333;
-let agendamentos = new agendamento_1.AgendamentoList([new agendamento_1.Agendamento('teste', '1'), new agendamento_1.Agendamento('teste2', '2'), new agendamento_1.Agendamento('teste3', '3')]);
+let agendamentos = new agendamento_1.AgendamentoList([new agendamento_1.Agendamento('20/04/2021', '1', { nome: 'zeze' }), new agendamento_1.Agendamento('20/04/2020', '2', { nome: 'spike' }), new agendamento_1.Agendamento('21/04/2021', '3', { nome: 'zeze' })]);
 let pets = new pet_1.PetList([new pet_1.Pet('0', 'Bob', 'cachorro', 'Golden Retriever', '5', 30, 'Manoel'),
     new pet_1.Pet('1', 'Rogério', 'gato', 'Sphynx', '3', 5, 'Marta'),
     new pet_1.Pet('2', 'Filomena', 'gato', 'British Shorthair', '4', 6, 'Alceu'),
@@ -22,12 +22,17 @@ var allowCrossDomain = function (req, res, next) {
 app.use(allowCrossDomain);
 app.post('/desmarcar', jsonParser, function (req, res) {
     let agendamento = Object.assign(new agendamento_1.Agendamento(), req.body);
-    if (agendamentos.desmarcarAgendamento(agendamento) != []) {
+    if (agendamentos.desmarcarAgendamento(agendamento) !== []) {
         res.send({ "success": "O agendamento foi desmarcado com sucesso" });
     }
     else {
         res.send({ "failure": "O agendamento não pode ser desmarcado" });
     }
+});
+app.post('/filterInPet', jsonParser, function (req, res) {
+    let petName = req.body;
+    console.log(petName.name);
+    res.send(JSON.stringify(agendamentos.filterPetInAgendamentos(petName.name)));
 });
 app.get('/agendamentos', function (req, res) {
     res.send(JSON.stringify(agendamentos.getAgendamentos()));
