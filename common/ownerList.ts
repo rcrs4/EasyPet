@@ -30,4 +30,17 @@ export class OwnerList{
     getOwnerList(){
         return this.owners.slice();
     }
+    
+        filterOwner(owners: Owner): Owner[] | null{
+        let new_owners: Owner[] = [];
+        for(let aux of this.owners){
+            if(owners.age !== aux.age && owners.id !== aux.id){
+                new_owners.push(aux);
+            }
+        }
+        if(new_owners.length === this.owners.length){
+            return null;
+        }
+        return new_owners;
+    }
 }
