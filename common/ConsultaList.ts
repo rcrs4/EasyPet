@@ -30,6 +30,6 @@ export class ConsultaList {
   get pets(): string[]  {
     const petsList: string[] = [];
     this._consultas.forEach(consulta => petsList.push(consulta.pet.nome));
-    return petsList;
+    return [... new Set(petsList)];
   }
 }
