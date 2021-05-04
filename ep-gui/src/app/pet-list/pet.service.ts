@@ -6,7 +6,6 @@ import { Pet } from '../../../../common/pet';
 
 @Injectable()
 export class PetService{
-    // private headers = new HttpHeaders({'Content-Type': 'application/json'});
     private epURL = 'http://localhost:3333';
 
     constructor(private http: HttpClient) {}
