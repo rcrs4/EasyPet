@@ -24,4 +24,20 @@ export class PetListComponent implements OnInit {
     )
   }
 
+  get_pets_sorted_by_name(){
+    return this.pet_service.getPetsNome()
+    // this.pet_service.getPetsNome().subscribe(
+    //   x => this.pets = x,
+    //   err => console.error('Error getting Pets Sorted')
+    // )
+  }
+
+  handleClick() {
+    console.log("PRÉ", this.pets)
+    this.get_pets_sorted_by_name().subscribe(
+      x => this.pets = x,
+    )
+    console.log("PÓS", this.pets)
+  }
+
 }

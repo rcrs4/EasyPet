@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { TableModule } from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
 
 import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +32,21 @@ import { PetListComponent } from './pet-list/pet-list.component';
     HttpClientModule,
     HistoricoModule,
     TableModule,
+    ButtonModule,
+    RouterModule.forRoot([
+      {
+        path: 'desmarcar',
+        component: DesmarcarConsultas
+      },
+      {
+        path: 'consultas',
+        component: AppointmentFilterComponent
+      },
+      {
+        path: 'pet_list',
+        component: PetListComponent
+      }
+    ])
   ],
   providers: [AgendamentoService, PetService, AppointmentService],
   bootstrap: [AppComponent]

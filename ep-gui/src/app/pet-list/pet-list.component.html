@@ -1,9 +1,11 @@
 <h2 id="pageTitle">Pet List</h2>
 
+<!-- <button pButton type="button" label="Ordenar por nome" (click)="handleClick()" style="margin-bottom: 30px;" ></button> -->
+
 <p-table [value]="pets">
     <ng-template pTemplate="header">
         <tr>
-            <th name="nomeColumn" pSortableColumn="nome">Nome</th>
+            <th (click)="handleClick()" name="nomeColumn">Nome</th>
             <th pSortableColumn="especie">Espécie</th>
             <th pSortableColumn="raca">Raça</th>
             <th pSortableColumn="idade">Idade</th>
