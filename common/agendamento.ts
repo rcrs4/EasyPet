@@ -20,7 +20,7 @@ export class AgendamentoList{
     desmarcarAgendamento(agendamento: Agendamento){
 
         let new_agendamentos = this.filterAgendamentos(agendamento)
-        
+
         if(new_agendamentos === null){
             return [];
         }else{

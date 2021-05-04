@@ -1,19 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { RouterModule }   from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { TableModule } from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { DesmarcarConsultas } from './desmarcar.component';
-import { AgendamentoService } from './agendamento.service';
-import { PetService } from './pet-list/pet.service';
+import { DesmarcarConsultas } from './agendamento/desmarcar/desmarcar.component';
+import { AgendamentoService } from './agendamento/agendamento.service';
+import { HistoricoModule } from './historico/historico.module';
+
+import { AppointmentService } from './appointment-filter/queryTable.service';
 import { AppointmentFilterComponent } from './appointment-filter/appointment-filter.component';
+import { PetService } from './pet-list/pet.service';
 import { PetListComponent } from './pet-list/pet-list.component';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import { PetListComponent } from './pet-list/pet-list.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    HistoricoModule,
     TableModule,
     ButtonModule,
     RouterModule.forRoot([
@@ -44,7 +48,7 @@ import { PetListComponent } from './pet-list/pet-list.component';
       }
     ])
   ],
-  providers: [AgendamentoService, PetService],
+  providers: [AgendamentoService, PetService, AppointmentService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
