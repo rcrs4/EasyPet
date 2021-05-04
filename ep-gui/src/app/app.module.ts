@@ -10,14 +10,19 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DesmarcarConsultas } from './desmarcar.component';
 import { AgendamentoService } from './agendamento.service';
+
 import { AppointmentService } from './appointment-filter/queryTable.service';
 import { AppointmentFilterComponent } from './appointment-filter/appointment-filter.component';
+import { PetService } from './pet-list/pet.service';
+import { PetListComponent } from './pet-list/pet-list.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     DesmarcarConsultas,
-    AppointmentFilterComponent
+    AppointmentFilterComponent,
+    PetListComponent
   ],
   imports: [
     BrowserModule,
@@ -33,10 +38,14 @@ import { AppointmentFilterComponent } from './appointment-filter/appointment-fil
       {
         path: 'consultas',
         component: AppointmentFilterComponent
+      },
+      {
+        path: 'pet_list',
+        component: PetListComponent
       }
     ])
   ],
-  providers: [AgendamentoService, AppointmentService],
+  providers: [AgendamentoService, PetService, AppointmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
