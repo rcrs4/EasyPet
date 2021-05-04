@@ -1,11 +1,11 @@
-<h2 id="pageTitle">Donos cadastrado</h2>
+<h2 id="pageTitle">listar donos</h2>
 
 <p-table [value]="owners">
     <ng-template pTemplate="header">
         <tr>
             <th pSortableColumn="id">Id</th>
             <th pSortableColumn="name">Nome</th>
-            <th pSortableColumn="age">Idade</th>
+            <th pSortableColumn="age" name="Idade">Idade</th>
             <th pSortableColumn="fone">Fone</th>
             <th pSortableColumn="cpf">Cpf</th>
             <th pSortableColumn="address">Endereço</th>
@@ -17,7 +17,7 @@
         <tr>
             <td>{{owner.id}}</td>
             <td>{{owner.name}}</td>
-            <td>{{owner.age}}</td>
+            <td id="ownerAgeRow">{{owner.age}}</td>
             <td>{{owner.fone}}</td>
             <td>{{owner.cpf}}</td>
             <td>{{owner.address}}</td>
