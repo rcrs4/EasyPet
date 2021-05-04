@@ -1,15 +1,18 @@
-<p-table [value]="products">
+<h2 id="pageTitle">Consultas</h2>
+
+<p-table [value]="appointments">
     <ng-template pTemplate="header">
         <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Quantity</th>
+            <th pSortableColumn="data" id="dataColumn">Data</th>
+            <th pSortableColumn="horario" id="horarioColumn">Horario</th>
+            <th pSortableColumn="veterinario" id="veterinarioColumn">Veterinario</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-product>
+    <ng-template pTemplate="body" let-appointment>
         <tr>
-            <td>{{product}}</td>
+            <td id="dataRow">{{appointment.data}}</td>
+            <td id="horarioRow">{{appointment.horario}}h</td>
+            <td id="veterinarioRow">{{appointment.veterinario}}</td>
         </tr>
     </ng-template>
 </p-table>

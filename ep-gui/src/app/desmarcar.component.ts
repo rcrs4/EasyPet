@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //import { Console } from 'node:console';
-import {Agendamento} from '../../../common/agendamento'
+import {Agendamento} from '../../../common/agendamento';
 import { AgendamentoService } from "./agendamento.service";
 
 @Component({
