@@ -29,7 +29,6 @@ defineSupportCode(function ({ Given, When, Then }) {
         await element.all(by.css('#veterinarioRow')).map( function (element){
             return element.getText();
         }).then( function (veterinarioTabColumn){
-            // console.log(vetTabColumn);
             expect(veterinarioTabColumn[0]).to.equal(veterinario0);
             expect(veterinarioTabColumn[1]).to.equal(veterinario1);
             expect(veterinarioTabColumn[2]).to.equal(veterinario2);
