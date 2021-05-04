@@ -36,12 +36,6 @@ app.post('/desmarcar', jsonParser, function (req: express.Request, res: express.
   }
 });
 
-app.post('/filterInPet', jsonParser, function (req: express.Request, res: express.Response) {
-  let petName = req.body
-  console.log(petName.name)
-  res.send(JSON.stringify(agendamentos.filterPetInAgendamentos(petName.name)));
-});
-
 app.get('/agendamentos', function (req: express.Request, res: express.Response) {
   res.send(JSON.stringify(agendamentos.getAgendamentos()))
 });
@@ -52,14 +46,11 @@ app.get('/pets', function (req: express.Request, res: express.Response) {
 
 app.get('/pets/sorted', function (req: express.Request, res: express.Response) {
   let petSorted:Pet[] = pets.getPets()
-  // console.log("PRÉ",petSorted)
   petSorted.sort(function(a, b){
     if(a.nome < b.nome) { return -1; }
     if(a.nome > b.nome) { return 1; }
     return 0;})
     res.send(JSON.stringify(petSorted))
-  // console.log("PÓS",petSorted)
-  // res.send(JSON.stringify(pets.getPets()))
 });
 
 app.get('/pets/:dono', function (req: express.Request, res: express.Response) {

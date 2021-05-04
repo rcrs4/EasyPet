@@ -32,7 +32,6 @@ defineSupportCode(function ({ Given, When, Then }) {
         await element.all(by.css('#petNameRow')).map( function (element){
             return element.getText();
         }).then( function (petTabColumn){
-            // console.log(petTabColumn);
             expect(petTabColumn[0]).to.equal(pet1);
             expect(petTabColumn[1]).to.equal(pet2);
             expect(petTabColumn[2]).to.equal(pet3);
