@@ -1,14 +1,13 @@
-Feature: Desmarcar agendamento
-
-    #UI
-	Scenario: Filtrar agendamento, service
-		Given que o sistema tem agendamentos de "spike" e de "zeze"
-		When eu filtro por "zeze"
-		Then o sistema retorna apenas agendamentos de "zeze" e nao mais de "spike"
+Feature: Listar donos cadastrados
 
     #Service
-	Scenario: Desmarcar agendamento com exito
-		Given I am at the desmarcar page
-		And eu vejo um agendamento para o pet "zeze" na data "20/04/2021"
-		When eu clico para desmarcar o agendamento de "zeze" na data "20/04/2021"
-		Then eu nao vejo o agendamento de "zeze" na data "20/04/2021" na lista de agendamentos
+	Scenario: Filtrar cadastro no service pela idade
+		Given que o sistema tem donos cadastrados com "22" e "24" anos de idade
+		When eu filtro por "22"
+		Then o sistema retorna apenas os donos com "22" anos
+
+    #UI
+	Scenario: Ordenação da lista de donos cadastrados
+		Given que eu estou na página que lista os donos cadastrados
+		And eu clico na propriedade "Idade"
+		Then a lista será ordenada baseada na "Idade" dos donos

@@ -17,4 +17,9 @@ export class OwnerListService{
         ); 
     }
 
+    ownerFilter(ownerAge: string): Observable<Owner[]>{
+        return this.http.post<Owner[]>(this.epURL + "/ownerFilter",JSON.stringify({'age':ownerAge}), {headers: this.headers}).pipe( 
+            retry(2),
+        );
+    }
 }

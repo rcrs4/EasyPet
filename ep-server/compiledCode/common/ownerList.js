@@ -16,6 +16,20 @@ class OwnerList {
     constructor(owners) {
         this.owners = owners;
     }
+    /*
+        ownerFilter(donos: Owner): Owner[] | null{
+            let new_donos: Owner[] = [];
+            for(let agen of this.owners){
+                if(donos.age !== agen.age){
+                    new_donos.push(agen);
+                }
+            }
+            if(new_donos.length === this.donos.length){
+                return null;
+            }
+            return new_donos;
+        }
+    */
     getOwnerList() {
         return this.owners.slice();
     }

@@ -21,6 +21,9 @@ let OwnerListService = class OwnerListService {
     getOwnerList() {
         return this.http.get(this.epURL + "/ownersList").pipe(operators_1.retry(2));
     }
+    ownerFilter(ownerAge) {
+        return this.http.post(this.epURL + "/ownerFilter", JSON.stringify({ 'age': ownerAge }), { headers: this.headers }).pipe(operators_1.retry(2));
+    }
 };
 OwnerListService = __decorate([
     core_1.Injectable(),
