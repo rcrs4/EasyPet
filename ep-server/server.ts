@@ -8,19 +8,16 @@ import {
 
 const app = express();
 
-const funTemporaria = () => {
-  const consultaList: Consulta[] = [
-    new Consulta("a", "b", { nome: "c" }, "d"),
-    new Consulta("A", "B", { nome: "c" }, "D"),
-    new Consulta("1", "2", { nome: "3" }, "4"),
-  ];
-  const consultas = new ConsultaList(consultaList);
+const consultaList: Consulta[] = [
+  new Consulta("a", "b", { nome: "c" }, "d"),
+  new Consulta("A", "B", { nome: "c" }, "D"),
+  new Consulta("1", "2", { nome: "3" }, "4"),
+];
+const consultas = new ConsultaList(consultaList);
 
-  consultas.filterOneConsultBy('b').descricao = 'pedro';
+consultas.filterOneConsultBy('b').descricao = 'pedro';
 
-  console.log(JSON.stringify(consultas.pets));
-}
-funTemporaria();
+console.log(JSON.stringify(consultas.pets));
 
 var bodyParser = require("body-parser");
 
@@ -74,6 +71,10 @@ app.get(
     res.send(JSON.stringify(agendamentos.getAgendamentos()));
   }
 );
+
+app.get('/pets', (req: express.Request, res: express.Response) => {
+  res.send(consultas.pets);
+});
 
 app.listen(portNumber, () =>
   console.log(`Server is running on port ${portNumber}`)

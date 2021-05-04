@@ -1,1 +1,6 @@
-<p>geral-view works!</p>
+<h2>O que você deseja ver?</h2>
+
+<div *ngFor='let pet of pets'>
+
+  <button name="AcessarPet" (click)="onPetSelect(pet)">Detalhes de {{pet}}</button>
+</div>
