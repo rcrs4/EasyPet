@@ -1,0 +1,15 @@
+<h2>Consultas de {{petName}}</h2>
+
+<table>
+  <tr *ngFor="let consulta of consultas">
+    <th>
+      {{consulta.data}}
+    </th>
+    <th>
+      {{consulta.id}}
+    </th>
+    <th>
+      <button>Detalhes</button>
+    </th>
+  </tr>
+</table>

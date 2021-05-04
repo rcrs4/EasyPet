@@ -11,6 +11,8 @@ import { HistoricoService } from '../historico.service';
 })
 export class PetViewComponent implements OnInit {
   consultas: Consulta[] = [];
+  petName:string = '';
+  message: string = '';
 
   constructor(
     private historicoService: HistoricoService,
@@ -22,6 +24,7 @@ export class PetViewComponent implements OnInit {
 
     this.historicoService.getConsultsFromPet(petName).subscribe(
       (consultas) => {
+        this.petName = petName;
         this.consultas = consultas;
       },
       (err) => console.log(err)
