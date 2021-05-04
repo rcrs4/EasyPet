@@ -1,0 +1,31 @@
+<h2>Consultas de {{petName}}</h2>
+
+<ng-container *ngIf="consultas.length == 0">
+  <h3>Nenhuma consulta realizada anteriormente</h3>
+</ng-container>
+<ng-container *ngIf="consultas.length != 0">
+
+  <table>
+    <tr>
+      <th>
+        Data
+      </th>
+      <th>
+        Resumo
+      </th>
+    </tr>
+
+    <tr *ngFor="let consulta of consultas">
+      <th>
+        {{consulta.data}}
+      </th>
+      <th>
+        {{consulta._descricao}}
+      </th>
+      <th>
+        <button name="AcessarDetalhesConsulta" (click)="getConsultDetails(consulta.id)">Detalhes</button>
+      </th>
+    </tr>
+  </table>
+  <button onClick="window.print()">Imprimir Prontuário</button>
+</ng-container>
