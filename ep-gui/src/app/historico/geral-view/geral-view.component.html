@@ -1,6 +1,9 @@
 <h2>O que você deseja ver?</h2>
 
-<div *ngFor='let pet of pets'>
+<table>
+  <tr *ngFor='let pet of pets'>
 
-  <button name="AcessarPet" (click)="onPetSelect(pet)">Detalhes de {{pet}}</button>
-</div>
+    <button name="AcessarPet" (click)="onPetSelect(pet)">Detalhes de {{pet}}</button>
+  </tr>
+
+</table>

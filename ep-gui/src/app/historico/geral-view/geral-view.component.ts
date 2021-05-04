@@ -1,4 +1,3 @@
-import { ConstantPool } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HistoricoService } from '../historico.service';
@@ -33,5 +32,7 @@ export class GeralViewComponent implements OnInit {
     }
 
     this.router.navigate(navigationDetails);
+
+    this.activatedRoute
   }
 }

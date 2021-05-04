@@ -7,18 +7,16 @@ import {
 } from "../common/index";
 
 const app = express();
-
+//==============
 const consultaList: Consulta[] = [
   new Consulta("a", "b", { nome: "c" }, "d"),
   new Consulta("A", "B", { nome: "c" }, "D"),
   new Consulta("1", "2", { nome: "3" }, "4"),
 ];
 const consultas = new ConsultaList(consultaList);
-
 consultas.filterOneConsultBy('b').descricao = 'pedro';
-
 console.log(JSON.stringify(consultas.pets));
-
+//==============
 var bodyParser = require("body-parser");
 
 var jsonParser = bodyParser.json();
@@ -68,6 +66,7 @@ app.post(
 app.get(
   "/agendamentos",
   function (req: express.Request, res: express.Response) {
+    console.log('what happened?')
     res.send(JSON.stringify(agendamentos.getAgendamentos()));
   }
 );
