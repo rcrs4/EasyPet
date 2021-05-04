@@ -1,0 +1,40 @@
+
+        <h2>Consultas agendadas</h2>
+        <div>
+            <label for="search1">Procure por Pet</label>
+            <br>
+            <input name="filterBar" type="search" [(ngModel)]="petToFilter">
+            
+            <button name="filterPet" (click)="filterPet(petToFilter)">Procurar</button>
+            <button name="retonaTodos" (click)="returnAll()">Todos</button>
+        </div>
+        <div *ngIf="agendamentos.length == 0">
+            <h3>Não há agendamentos marcados</h3>
+        </div>
+        <table *ngIf="filtered == false">
+            <tr *ngIf="agendamentos.length > 0">
+                <th>Data</th>
+                <th>Pet</th>
+            </tr>
+            <tr *ngFor="let agendamento of agendamentos" name="agendamentoList">
+                <td name="agendamentoData">{{ agendamento.data}}</td>
+                <td name="petName">{{agendamento.pet.nome}}</td>
+                <td><button name="desmarcar{{agendamento.pet.nome}}{{agendamento.data}}" (click)="desmarcar(agendamento)">
+                    Desmarcar
+                </button></td>
+            </tr>
+        </table>
+
+        <table *ngIf="filtered == true">
+            <tr *ngIf="filteredAgendamentos.length > 0">
+                <th>Data</th>
+                <th>Pet</th>
+            </tr>
+            <tr *ngFor="let agendamento of filteredAgendamentos" name="agendamentoList">
+                <td name="agendamentoData">{{ agendamento.data}}</td>
+                <td name="petName">{{agendamento.pet.nome}}</td>
+                <td><button name="desmarcar{{agendamento.pet.nome}}{{agendamento.data}}" (click)="desmarcar(agendamento)">
+                    Desmarcar
+                </button></td>
+            </tr>
+        </table>
