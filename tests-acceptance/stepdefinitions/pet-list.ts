@@ -54,4 +54,8 @@ defineSupportCode(function ({ Given, When, Then }) {
                 .then(body =>
                     expect(body.includes('{"id":"'+id+'"') && body.includes('"nome":"'+pet+'"') && body.includes('"dono":"'+dono+'"}')).to.equal(true));  
     });
+    
+    When('eu solicito ao sistema para ordenar os pets por nome', async () => {
+        await request.get(base_url + "pets/sorted")
+    });
 })
